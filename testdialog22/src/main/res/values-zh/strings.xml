@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TestDialog22</string>
+    <string name="s16_17">11111</string>
+    <string name="s16_18">22222222</string>
+    <string name="app_title_add">下面是添加文本的数据</string>
+</resources>

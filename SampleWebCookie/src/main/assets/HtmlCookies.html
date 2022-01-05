@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <!--    <script src="./vconsole.min.js"></script>-->
+    <script>
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i].trim();
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function getAllCookies() {
+            return document.cookie.toString();
+        }
+
+        //取cookies函数
+        function getCookieByName(name) {
+            var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+            if (arr != null) return unescape(arr[2]);
+            return null;
+        }
+
+        //清除所有cookie函数
+        function clearAllCookie() {
+            var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+            if (keys) {
+                for (var i = keys.length; i--;)
+                    document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+            }
+        }
+
+        function checkCookie() {
+            var user = getCookie("username");
+            if (user != "") {
+                alert("欢迎 " + user + " 再次访问");
+            } else {
+                user = prompt("请输入你的名字:", "");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 30);
+                }
+            }
+
+<!--            var vConsole = new VConsole();-->
+<!--            console.log('cookie', document.cookie)-->
+        }
+
+
+
+    </script>
+</head>
+
+<body onload="checkCookie()">
+<br/>
+innerText ：<span id="innerText">这个是之前的数据</span><br/><br/>
+<input id="replace" type="button" value="刷新" onclick="replace()"/>
+<br/><br/>
+<input id="clear" type="button" value="清除所有cookies" onclick="clearCookiesFun()"/>
+<br/><br/>
+显示当前cookies ：<span id="showCookies">显示当前cookies</span><br/>
+<input id="show" type="button" value="显示当前cookies" onclick="showCookiesFun()"/>
+<!--<script>-->
+<!--  var vConsole = new VConsole();-->
+<!--  console.log('cookie', document.cookie)-->
+<!--</script>-->
+
+<a href="xtrendspeed://main">客户端</a>
+
+<script>
+    var it = document.getElementById("innerText");
+    var showCookies = document.getElementById("showCookies");
+
+
+    function replace() {
+<!--        var vConsole = new VConsole();-->
+
+        var user = getCookie("username");
+        var time2 = getCookieByName("nowTime")
+        if (user != "") {
+            it.innerText = "记录的用户名：" + user + " =" + time2 + "=";
+            var date = new Date();
+            var y = date.getFullYear();<!--年-->
+            var m = date.getMonth() + 1;<!--月，这里的月份必须要+1才是当前月份-->
+            var d = date.getDate(); <!--日，getDay是获得当前星期几（0-6），getDate是获得当前日期-->
+            var ho = date.getHours();
+            var mi = date.getMinutes();
+            var ss = date.getSeconds();
+            var nowTime = y + "-" + m + "-" + d + " " + ho + ":" + mi + ":" + ss
+            setCookie("nowTime", nowTime, 30)
+        } else {
+            user = prompt("请输入你的名字:", "");
+            if (user != "" && user != null) {
+                setCookie("username", user, 30);
+            }
+        }
+        showCookiesFun()
+    }
+
+    function clearCookiesFun() {
+        clearAllCookie()
+        showCookiesFun()
+    }
+
+    function showCookiesFun() {
+        var allCookies = getAllCookies()
+        showCookies.innerText = allCookies;
+    }
+
+    // var new_url = "http://localhost:63342/ZZTWeb/src/main/webapp/HtmlCookiesV2.html";
+    // 五秒以后再跳转
+    // setTimeout("javascript:location.href=new_url", 5000);
+
+
+
+
+</script>
+</body>
+
+</html>

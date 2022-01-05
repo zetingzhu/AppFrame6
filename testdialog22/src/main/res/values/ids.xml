@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="title_tv" type="id" />
+    <item name="kline_weipanView" type="id" />
+    <item name="kline_weipanline" type="id" />
+    <item name="weipanView" type="id" />
+
+    <item name="layoutLoding" type="id" />
+    <item name="appBaseContentView" type="id" />
+
+    <item name="swipe_notification_container" type="id" />
+    <item name="reg_voucher_danmu" type="id" />
+    <item name="home_taskcenter_tips" type="id" />
+
+    <item name="data_picker_bottom_center" type="id" />
+
+    <item name="img_red_point_home_task_center" type="id"></item>
+    <item name="img_red_point_home_symbol" type="id"></item>
+    <item name="img_red_point_home_live" type="id"></item>
+    <item name="img_red_point_home_leaderboaed" type="id"></item>
+    <item name="img_red_point_home_novice_school" type="id"></item>
+    <item name="img_red_point_home_quick_trade" type="id"></item>
+    <item name="tv_tag_live" type="id"></item>
+    <item name="tv_tag_new" type="id"></item>
+
+    <!--创建一个圈子失败图片计算-->
+    <item name="group_glide_img_id" type="id" />
+    <item name="group_glide_img_url" type="id" />
+
+</resources>
