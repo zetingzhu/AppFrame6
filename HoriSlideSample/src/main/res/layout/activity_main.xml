@@ -33,23 +33,50 @@
             android:textSize="30sp" />
     </FrameLayout>
 
-    <com.zzt.horislidesample.SlideHoriView
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="11111111111"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
+            <com.zzt.horislidesample.SlideHoriView
+                android:id="@+id/slhv_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="400dp"
+                android:layout_marginBottom="400dp"
+                android:background="#D6D6D6"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp">
 
-    </com.zzt.horislidesample.SlideHoriView>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_launcher" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="31111111112"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#900098"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_launcher" />
+
+            </com.zzt.horislidesample.SlideHoriView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
