@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        LeftFixedEditText lfet_text = findViewById(R.id.lfet_text);
+        lfet_text.setFixedText("AAAA");
+
         rv_list = findViewById(R.id.rv_list);
 
         List<StartActivityDao> mListDialog = new ArrayList<>();

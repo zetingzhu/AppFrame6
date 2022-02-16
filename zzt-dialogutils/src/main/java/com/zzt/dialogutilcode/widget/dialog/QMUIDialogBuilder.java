@@ -429,6 +429,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
         }
 
         if (operatorLayout != null) {
+            operatorLayout.setBackground(QMUIDrawableHelper.getVectorDrawable(mContext, R.color.qmui_config_color_red));
             ConstraintLayout.LayoutParams lp = onCreateOperatorLayoutLayoutParams(dialogContext);
             if (contentLayout != null) {
                 lp.topToBottom = contentLayout.getId();
