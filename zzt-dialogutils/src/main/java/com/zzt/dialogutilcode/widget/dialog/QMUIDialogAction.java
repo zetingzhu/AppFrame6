@@ -152,68 +152,67 @@ public class QMUIDialogAction {
         button.setBackground(null);
         button.setMinHeight(0);
         button.setMinimumHeight(0);
-        TypedArray a = context.obtainStyledAttributes(
-                null, R.styleable.QMUIDialogActionStyleDef, R.attr.qmui_dialog_action_style, 0);
-        int count = a.getIndexCount();
+//        TypedArray a = context.obtainStyledAttributes(
+//                null, R.styleable.QMUIDialogActionStyleDef, R.attr.qmui_dialog_action_style, 0);
+//        int count = a.getIndexCount();
         int paddingHor = 0, iconSpace = 0;
         ColorStateList negativeTextColor = null, positiveTextColor = null;
-        for (int i = 0; i < count; i++) {
-            int attr = a.getIndex(i);
-            if (attr == R.styleable.QMUIDialogActionStyleDef_android_gravity) {
-                button.setGravity(a.getInt(attr, -1));
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_textColor) {
-                button.setTextColor(a.getColorStateList(attr));
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_textSize) {
-                button.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimensionPixelSize(attr, 0));
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_action_button_padding_horizontal) {
-                paddingHor = a.getDimensionPixelSize(attr, 0);
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_background) {
-                button.setBackground(a.getDrawable(attr));
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_minWidth) {
-                int miniWidth = a.getDimensionPixelSize(attr, 0);
-                button.setMinWidth(miniWidth);
-                button.setMinimumWidth(miniWidth);
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_positive_action_text_color) {
-                positiveTextColor = a.getColorStateList(attr);
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_negative_action_text_color) {
-                negativeTextColor = a.getColorStateList(attr);
-            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_action_icon_space) {
-                iconSpace = a.getDimensionPixelSize(attr, 0);
-            } else if (attr == R.styleable.QMUITextCommonStyleDef_android_textStyle) {
-                int styleIndex = a.getInt(attr, -1);
-                button.setTypeface(null, styleIndex);
-            }
-        }
-
-        a.recycle();
+//        for (int i = 0; i < count; i++) {
+//            int attr = a.getIndex(i);
+//            if (attr == R.styleable.QMUIDialogActionStyleDef_android_gravity) {
+//                button.setGravity(a.getInt(attr, -1));
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_textColor) {
+//                button.setTextColor(a.getColorStateList(attr));
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_textSize) {
+//                button.setTextSize(TypedValue.COMPLEX_UNIT_PX, a.getDimensionPixelSize(attr, 0));
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_action_button_padding_horizontal) {
+//                paddingHor = a.getDimensionPixelSize(attr, 0);
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_background) {
+//                button.setBackground(a.getDrawable(attr));
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_android_minWidth) {
+//                int miniWidth = a.getDimensionPixelSize(attr, 0);
+//                button.setMinWidth(miniWidth);
+//                button.setMinimumWidth(miniWidth);
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_positive_action_text_color) {
+//                positiveTextColor = a.getColorStateList(attr);
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_negative_action_text_color) {
+//                negativeTextColor = a.getColorStateList(attr);
+//            } else if (attr == R.styleable.QMUIDialogActionStyleDef_qmui_dialog_action_icon_space) {
+//                iconSpace = a.getDimensionPixelSize(attr, 0);
+//            } else if (attr == R.styleable.QMUITextCommonStyleDef_android_textStyle) {
+//                int styleIndex = a.getInt(attr, -1);
+//                button.setTypeface(null, styleIndex);
+//            }
+//        }
+//
+//        a.recycle();
         button.setPadding(paddingHor, 0, paddingHor, 0);
         if (iconRes <= 0) {
             button.setText(text);
         } else {
-            button.setText(QMUISpanHelper.generateSideIconText(
-                    true, iconSpace, text, ContextCompat.getDrawable(context, iconRes), iconTintColor, button));
+            button.setText(QMUISpanHelper.generateSideIconText(  true, iconSpace, text, ContextCompat.getDrawable(context, iconRes), iconTintColor, button));
         }
 
 
         button.setClickable(true);
         button.setEnabled(mIsEnabled);
 
-        if (mActionProp == ACTION_PROP_NEGATIVE) {
-            button.setTextColor(negativeTextColor);
-            if (skinTextColorAttr == 0) {
-                skinTextColorAttr = R.attr.qmui_skin_support_dialog_negative_action_text_color;
-            }
-        } else if (mActionProp == ACTION_PROP_POSITIVE) {
-            button.setTextColor(positiveTextColor);
-            if (skinTextColorAttr == 0) {
-                skinTextColorAttr = R.attr.qmui_skin_support_dialog_positive_action_text_color;
-            }
-        } else {
-            if (skinTextColorAttr == 0) {
-                skinTextColorAttr = R.attr.qmui_skin_support_dialog_action_text_color;
-            }
-        }
-        skinBackgroundAttr = skinBackgroundAttr == 0 ? R.attr.qmui_skin_support_dialog_action_bg : skinBackgroundAttr;
+//        if (mActionProp == ACTION_PROP_NEGATIVE) {
+//            button.setTextColor(negativeTextColor);
+//            if (skinTextColorAttr == 0) {
+//                skinTextColorAttr = R.attr.qmui_skin_support_dialog_negative_action_text_color;
+//            }
+//        } else if (mActionProp == ACTION_PROP_POSITIVE) {
+//            button.setTextColor(positiveTextColor);
+//            if (skinTextColorAttr == 0) {
+//                skinTextColorAttr = R.attr.qmui_skin_support_dialog_positive_action_text_color;
+//            }
+//        } else {
+//            if (skinTextColorAttr == 0) {
+//                skinTextColorAttr = R.attr.qmui_skin_support_dialog_action_text_color;
+//            }
+//        }
+//        skinBackgroundAttr = skinBackgroundAttr == 0 ? R.attr.qmui_skin_support_dialog_action_bg : skinBackgroundAttr;
 
         return button;
     }

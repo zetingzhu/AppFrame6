@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.nfc.Tag;
 import android.util.Log;
 import android.view.View;
@@ -369,33 +370,33 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
         checkAndSetId(contentLayout, R.id.qmui_dialog_content_id);
 
 
-        /*****************测试数据**********************/
-        ConstraintLayout conl = new ConstraintLayout(mContext);
-        ConstraintLayout.LayoutParams tlp = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        conl.setBackground(QMUIDrawableHelper.getVectorDrawable(mContext, R.color.qmui_config_color_red));
-        tlp.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
-        tlp.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID;
-        tlp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
-        tlp.verticalChainStyle = ConstraintLayout.LayoutParams.CHAIN_PACKED;
-        TextView titleView2 = new TextView(mContext);
-        titleView2.setTextColor(Color.BLACK);
-        titleView2.setText("我去这个又是什么玩意，这他妈到底是怎么添加进去的，他妈的");
-        titleView2.setTextSize(30);
-        conl.addView(titleView2);
-        mDialog.addContentView(conl, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-
-        LinearLayout linearLayout = new LinearLayout(mContext);
-        linearLayout.setBackground(QMUIDrawableHelper.getVectorDrawable(mContext, R.color.qmui_config_color_blue));
-        TextView titleView1 = new TextView(mContext);
-        titleView1.setTextColor(Color.BLACK);
-        titleView1.setText("卧槽，这个布局怎么添加进去");
-        titleView1.setTextSize(30);
-        linearLayout.addView(titleView1);
-        mDialog.addContentView(linearLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-
-        /*****************测试数据**********************/
+//        /*****************测试数据**********************/
+//        ConstraintLayout conl = new ConstraintLayout(mContext);
+//        ConstraintLayout.LayoutParams tlp = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        conl.setBackground(QMUIDrawableHelper.getVectorDrawable(mContext, R.color.qmui_config_color_red));
+//        tlp.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
+//        tlp.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID;
+//        tlp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
+//        tlp.verticalChainStyle = ConstraintLayout.LayoutParams.CHAIN_PACKED;
+//        TextView titleView2 = new TextView(mContext);
+//        titleView2.setTextColor(Color.BLACK);
+//        titleView2.setText("我去这个又是什么玩意，这他妈到底是怎么添加进去的，他妈的");
+//        titleView2.setTextSize(30);
+//        conl.addView(titleView2);
+//        mDialog.addContentView(conl, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//
+//
+//        LinearLayout linearLayout = new LinearLayout(mContext);
+//        linearLayout.setBackground(QMUIDrawableHelper.getVectorDrawable(mContext, R.color.qmui_config_color_blue));
+//        TextView titleView1 = new TextView(mContext);
+//        titleView1.setTextColor(Color.BLACK);
+//        titleView1.setText("卧槽，这个布局怎么添加进去");
+//        titleView1.setTextSize(30);
+//        linearLayout.addView(titleView1);
+//        mDialog.addContentView(linearLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//
+//
+//        /*****************测试数据**********************/
 
 
         // chain
@@ -408,7 +409,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
             } else {
                 lp.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
             }
-            Log.d(TAG, "-----" + titleView1 + " title:" + titleView1.getText().toString());
+//            Log.d(TAG, "-----" + titleView1 + " title:" + titleView1.getText().toString());
             mDialogView.addView(titleView, lp);
         }
 
@@ -430,6 +431,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
 
         if (operatorLayout != null) {
             operatorLayout.setBackground(QMUIDrawableHelper.getVectorDrawable(mContext, R.color.qmui_config_color_red));
+
             ConstraintLayout.LayoutParams lp = onCreateOperatorLayoutLayoutParams(dialogContext);
             if (contentLayout != null) {
                 lp.topToBottom = contentLayout.getId();
@@ -439,6 +441,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
                 lp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
             }
             mDialogView.addView(operatorLayout, lp);
+
         }
 
         Log.d(TAG, "-----" + mDialogView + " count:" + mDialogView.getChildCount());
@@ -506,7 +509,8 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
             TextView tv = new QMUISpanTouchFixTextView(context);
             tv.setId(R.id.qmui_dialog_title_id);
             tv.setText(mTitle);
-            QMUIResHelper.assignTextViewWithAttr(tv, R.attr.qmui_dialog_title_style);
+            tv.setBackgroundColor(Color.parseColor("#007766"));
+//            QMUIResHelper.assignTextViewWithAttr(tv, R.attr.qmui_dialog_title_style);
 //            skinConfigTitleView(tv);
             return tv;
         }
@@ -536,7 +540,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
     }
 
     protected ConstraintLayout.LayoutParams onCreateContentLayoutParams(@NonNull Context context) {
-        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams( ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
         lp.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID;
         lp.constrainedHeight = true;
@@ -548,81 +552,81 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
     protected View onCreateOperatorLayout(@NonNull final QMUIDialog dialog, @NonNull QMUIDialogView parent, @NonNull Context context) {
         int size = mActions.size();
         if (size > 0) {
-            TypedArray a = context.obtainStyledAttributes(null, R.styleable.QMUIDialogActionContainerCustomDef, R.attr.qmui_dialog_action_container_style, 0);
-            int count = a.getIndexCount();
-            int justifyContent = 1, spaceCustomIndex = 0;
-            int actionHeight = -1, actionSpace = 0;
-            for (int i = 0; i < count; i++) {
-                int attr = a.getIndex(i);
-                if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_container_justify_content) {
-                    justifyContent = a.getInteger(attr, justifyContent);
-                } else if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_container_custom_space_index) {
-                    spaceCustomIndex = a.getInteger(attr, 0);
-                } else if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_space) {
-                    actionSpace = a.getDimensionPixelSize(attr, 0);
-                } else if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_height) {
-                    actionHeight = a.getDimensionPixelSize(attr, 0);
-                }
-            }
-            a.recycle();
-            int spaceInsertPos = -1;
-            if (mActionContainerOrientation != VERTICAL) {
-                if (justifyContent == 0) {
-                    spaceInsertPos = size;
-                } else if (justifyContent == 1) {
-                    spaceInsertPos = 0;
-                } else if (justifyContent == 3) {
-                    spaceInsertPos = spaceCustomIndex;
-                }
-            }
+//            TypedArray a = context.obtainStyledAttributes(null, R.styleable.QMUIDialogActionContainerCustomDef, R.attr.qmui_dialog_action_container_style, 0);
+//            int count = a.getIndexCount();
+//            int justifyContent = 1, spaceCustomIndex = 0;
+//            int actionHeight = -1, actionSpace = 0;
+//            for (int i = 0; i < count; i++) {
+//                int attr = a.getIndex(i);
+//                if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_container_justify_content) {
+//                    justifyContent = a.getInteger(attr, justifyContent);
+//                } else if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_container_custom_space_index) {
+//                    spaceCustomIndex = a.getInteger(attr, 0);
+//                } else if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_space) {
+//                    actionSpace = a.getDimensionPixelSize(attr, 0);
+//                } else if (attr == R.styleable.QMUIDialogActionContainerCustomDef_qmui_dialog_action_height) {
+//                    actionHeight = a.getDimensionPixelSize(attr, 0);
+//                }
+//            }
+//            a.recycle();
+//            int spaceInsertPos = -1;
+//            if (mActionContainerOrientation != VERTICAL) {
+//                if (justifyContent == 0) {
+//                    spaceInsertPos = size;
+//                } else if (justifyContent == 1) {
+//                    spaceInsertPos = 0;
+//                } else if (justifyContent == 3) {
+//                    spaceInsertPos = spaceCustomIndex;
+//                }
+//            }
 
-            final QMUILinearLayout layout = new QMUILinearLayout(context, null, R.attr.qmui_dialog_action_container_style);
+//            final QMUILinearLayout layout = new QMUILinearLayout(context, null, R.attr.qmui_dialog_action_container_style);
+            LinearLayout layout = new LinearLayout(context);
             layout.setId(R.id.qmui_dialog_operator_layout_id);
             layout.setOrientation(mActionContainerOrientation == VERTICAL ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
-            skinConfigActionContainer(layout);
 
             for (int i = 0; i < size; i++) {
-                if (spaceInsertPos == i) {
+//                if (spaceInsertPos == i) {
                     layout.addView(createActionContainerSpace(context));
-                }
+//                }
                 QMUIDialogAction action = mActions.get(i);
-                action.skinSeparatorColorAttr(mActionDividerColorAttr);
+//                action.skinSeparatorColorAttr(mActionDividerColorAttr);
                 LinearLayout.LayoutParams actionLp;
                 if (mActionContainerOrientation == VERTICAL) {
-                    actionLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, actionHeight);
+                    actionLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 } else {
-                    actionLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, actionHeight);
-                    if (spaceInsertPos >= 0) {
-                        if (i >= spaceInsertPos) {
-                            actionLp.leftMargin = actionSpace;
-                        } else {
-                            actionLp.rightMargin = actionSpace;
-                        }
-                    }
-                    if (justifyContent == 2) {
-                        actionLp.weight = 1;
-                    }
+                    actionLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                    if (spaceInsertPos >= 0) {
+//                        if (i >= spaceInsertPos) {
+//                            actionLp.leftMargin = actionSpace;
+//                        } else {
+//                            actionLp.rightMargin = actionSpace;
+//                        }
+//                    }
+//                    if (justifyContent == 2) {
+//                        actionLp.weight = 1;
+//                    }
                 }
                 QMUIButton actionView = action.buildActionView(mDialog, i);
 
                 // add divider
-                if (mActionDividerThickness > 0 && i > 0 && spaceInsertPos != i) {
-                    int color = mActionDividerColorAttr == 0 ? mActionDividerColor : QMUISkinHelper.getSkinColor(actionView, mActionDividerColorAttr);
-                    if (mActionContainerOrientation == VERTICAL) {
-                        actionView.onlyShowTopDivider(mActionDividerInsetStart,
-                                mActionDividerInsetEnd, mActionDividerThickness, color);
-                    } else {
-                        actionView.onlyShowLeftDivider(mActionDividerInsetStart,
-                                mActionDividerInsetEnd, mActionDividerThickness, color);
-                    }
-                }
+//                if (mActionDividerThickness > 0 && i > 0 && spaceInsertPos != i) {
+//                    int color = mActionDividerColorAttr == 0 ? mActionDividerColor : QMUISkinHelper.getSkinColor(actionView, mActionDividerColorAttr);
+//                    if (mActionContainerOrientation == VERTICAL) {
+//                        actionView.onlyShowTopDivider(mActionDividerInsetStart,
+//                                mActionDividerInsetEnd, mActionDividerThickness, color);
+//                    } else {
+//                        actionView.onlyShowLeftDivider(mActionDividerInsetStart,
+//                                mActionDividerInsetEnd, mActionDividerThickness, color);
+//                    }
+//                }
 
                 layout.addView(actionView, actionLp);
             }
 
-            if (spaceInsertPos == size) {
-                layout.addView(createActionContainerSpace(context));
-            }
+//            if (spaceInsertPos == size) {
+//                layout.addView(createActionContainerSpace(context));
+//            }
 
             if (mActionContainerOrientation == HORIZONTAL) {
                 layout.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {

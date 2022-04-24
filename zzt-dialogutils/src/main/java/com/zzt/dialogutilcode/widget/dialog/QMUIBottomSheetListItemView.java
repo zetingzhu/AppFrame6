@@ -56,7 +56,7 @@ public class QMUIBottomSheetListItemView extends QMUIConstraintLayout {
         mTextView = new QMUISpanTouchFixTextView(context);
         mTextView.setId(View.generateViewId());
 
-        QMUIResHelper.assignTextViewWithAttr(mTextView, R.attr.qmui_bottom_sheet_list_item_text_style);
+//        QMUIResHelper.assignTextViewWithAttr(mTextView, R.attr.qmui_bottom_sheet_list_item_text_style);
 
         mRedPointView = new QMUIFrameLayout(context);
         mRedPointView.setId(View.generateViewId());
