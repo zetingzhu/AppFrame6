@@ -23,7 +23,7 @@ import com.zzt.adapter.StartActivityRecyclerAdapter
 import com.zzt.entity.StartActivityDao
 import java.io.File
 
-class MainActivity : AppCompatActivity() {
+class MainActivity                                                                                 AppCompatActivity() {
     val TAG = MainActivity::class.java.simpleName
 
     var rv_list: RecyclerView? = null
@@ -37,19 +37,19 @@ class MainActivity : AppCompatActivity() {
 
     /**
      *
-    StartIntentSenderForResult : google支付
-    RequestMultiplePermissions : 多个权限请求
-    RequestPermission : 单个权限请求
-    TakePicturePreview : 拍照预览
-    TakePicture : 拍照
-    TakeVideo : 摄像
-    PickContact : 选择联系人
-    GetContent : 获取各种文件的Uri
-    GetMultipleContents : 获取多个各种文件的Uri
-    OpenDocument : 打开文件
-    OpenMultipleDocuments : 打开多个文件
-    OpenDocumentTree : 打开文件夹
-    CreateDocument : 创建文件
+    StartIntentSenderForResult                                                                                 google支付
+    RequestMultiplePermissions                                                                                 多个权限请求
+    RequestPermission                                                                                 单个权限请求
+    TakePicturePreview                                                                                 拍照预览
+    TakePicture                                                                                 拍照
+    TakeVideo                                                                                 摄像
+    PickContact                                                                                 选择联系人
+    GetContent                                                                                 获取各种文件的Uri
+    GetMultipleContents                                                                                 获取多个各种文件的Uri
+    OpenDocument                                                                                 打开文件
+    OpenMultipleDocuments                                                                                 打开多个文件
+    OpenDocumentTree                                                                                 打开文件夹
+    CreateDocument                                                                                 创建文件
      */
     private fun initView() {
         rv_list = findViewById(R.id.rv_list)

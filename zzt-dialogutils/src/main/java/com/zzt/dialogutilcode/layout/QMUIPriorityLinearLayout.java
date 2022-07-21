@@ -62,12 +62,12 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
         }
         int usedWidth = handlePriorityIncompressible(widthMeasureSpec, heightMeasureSpec);
         if (usedWidth >= widthSize) {
-            for (View view : mTempMiniWidthChildList) {
+            for (View view                                                                                 mTempMiniWidthChildList) {
                 LayoutParams lp = (LayoutParams) view.getLayoutParams();
                 view.measure(View.MeasureSpec.makeMeasureSpec(lp.miniContentProtectionSize, View.MeasureSpec.AT_MOST), heightMeasureSpec);
                 lp.width = view.getMeasuredWidth();
             }
-            for (View view : mTempDisposableChildList) {
+            for (View view                                                                                 mTempDisposableChildList) {
                 LayoutParams lp = (LayoutParams) view.getLayoutParams();
                 lp.width = 0;
                 lp.leftMargin = 0;
@@ -76,7 +76,7 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
         } else {
             int usefulWidth = widthSize - usedWidth;
             int miniNeedWidth = 0, miniWidthChildTotalWidth = 0, marginHor;
-            for (View view : mTempMiniWidthChildList) {
+            for (View view                                                                                 mTempMiniWidthChildList) {
                 LayoutParams lp = (LayoutParams) view.getLayoutParams();
                 view.measure(View.MeasureSpec.makeMeasureSpec(widthSize, View.MeasureSpec.AT_MOST), heightMeasureSpec);
                 marginHor = lp.leftMargin + lp.rightMargin;
@@ -84,11 +84,11 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
                 miniNeedWidth += Math.min(view.getMeasuredWidth(), lp.miniContentProtectionSize) + marginHor;
             }
             if (miniNeedWidth >= usefulWidth) {
-                for (View view : mTempMiniWidthChildList) {
+                for (View view                                                                                 mTempMiniWidthChildList) {
                     LayoutParams lp = (LayoutParams) view.getLayoutParams();
                     lp.width = Math.min(view.getMeasuredWidth(), lp.miniContentProtectionSize);
                 }
-                for (View view : mTempDisposableChildList) {
+                for (View view                                                                                 mTempDisposableChildList) {
                     LayoutParams lp = (LayoutParams) view.getLayoutParams();
                     lp.width = 0;
                     lp.leftMargin = 0;
@@ -102,7 +102,7 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
                 }
             } else {
                 // no space for disposableChild
-                for (View view : mTempDisposableChildList) {
+                for (View view                                                                                 mTempDisposableChildList) {
                     LayoutParams lp = (LayoutParams) view.getLayoutParams();
                     lp.width = 0;
                     lp.leftMargin = 0;
@@ -124,12 +124,12 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
         }
         int usedHeight = handlePriorityIncompressible(widthMeasureSpec, heightMeasureSpec);
         if (usedHeight >= heightSize) {
-            for (View view : mTempMiniWidthChildList) {
+            for (View view                                                                                 mTempMiniWidthChildList) {
                 LayoutParams lp = (LayoutParams) view.getLayoutParams();
                 view.measure(widthMeasureSpec, View.MeasureSpec.makeMeasureSpec(lp.miniContentProtectionSize, View.MeasureSpec.AT_MOST));
                 lp.height = view.getMeasuredHeight();
             }
-            for (View view : mTempDisposableChildList) {
+            for (View view                                                                                 mTempDisposableChildList) {
                 LayoutParams lp = (LayoutParams) view.getLayoutParams();
                 lp.height = 0;
                 lp.topMargin = 0;
@@ -138,7 +138,7 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
         } else {
             int usefulSpace = heightSize - usedHeight;
             int miniNeedSpace = 0, miniSizeChildTotalLength = 0, marginVer;
-            for (View view : mTempMiniWidthChildList) {
+            for (View view                                                                                 mTempMiniWidthChildList) {
                 LayoutParams lp = (LayoutParams) view.getLayoutParams();
                 view.measure(widthMeasureSpec, View.MeasureSpec.makeMeasureSpec(heightSize, View.MeasureSpec.AT_MOST));
                 marginVer = lp.topMargin + lp.bottomMargin;
@@ -146,11 +146,11 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
                 miniNeedSpace += Math.min(view.getMeasuredHeight(), lp.miniContentProtectionSize) + marginVer;
             }
             if (miniNeedSpace >= usefulSpace) {
-                for (View view : mTempMiniWidthChildList) {
+                for (View view                                                                                 mTempMiniWidthChildList) {
                     LayoutParams lp = (LayoutParams) view.getLayoutParams();
                     lp.height = Math.min(view.getMeasuredHeight(), lp.miniContentProtectionSize);
                 }
-                for (View view : mTempDisposableChildList) {
+                for (View view                                                                                 mTempDisposableChildList) {
                     LayoutParams lp = (LayoutParams) view.getLayoutParams();
                     lp.height = 0;
                     lp.topMargin = 0;
@@ -164,7 +164,7 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
                 }
             } else {
                 // no space for disposableChild
-                for (View view : mTempDisposableChildList) {
+                for (View view                                                                                 mTempDisposableChildList) {
                     LayoutParams lp = (LayoutParams) view.getLayoutParams();
                     lp.height = 0;
                     lp.topMargin = 0;
@@ -223,7 +223,7 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
 
     protected void dispatchSpaceToDisposableChildList(ArrayList<View> childList, int widthMeasureSpec, int heightMeasureSpec, int usefulSpace) {
 
-        for (View view : childList) {
+        for (View view                                                                                 childList) {
             LayoutParams lp = (LayoutParams) view.getLayoutParams();
             if (getOrientation() == HORIZONTAL) {
                 if(usefulSpace <= 0){
@@ -278,7 +278,7 @@ public class QMUIPriorityLinearLayout extends QMUILinearLayout {
                                                      int calculateTotalLength) {
         int extra = calculateTotalLength - usefulSpace;
         if (extra > 0) {
-            for (View view : childList) {
+            for (View view                                                                                 childList) {
                 LayoutParams lp = (LayoutParams) view.getLayoutParams();
                 if (getOrientation() == HORIZONTAL) {
                     float radio = (view.getMeasuredWidth() + lp.leftMargin + lp.rightMargin)

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @date: 2021/11/17
  *
  */
-class MViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MViewHolder(itemView: View)                                                                                 RecyclerView.ViewHolder(itemView) {
     var title = itemView.findViewById<TextView>(R.id.tv_title)
 
 }

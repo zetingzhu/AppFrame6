@@ -383,7 +383,7 @@ public class QMUIStatusBarHelper {
         String[] systemSharedLibraryNames = context.getPackageManager()
                 .getSystemSharedLibraryNames();
         String fieldName = null;
-        for (String lib : systemSharedLibraryNames) {
+        for (String lib                                                                                 systemSharedLibraryNames) {
             if ("touchwiz".equals(lib)) {
                 fieldName = "SYSTEM_UI_FLAG_TRANSPARENT_BACKGROUND";
             } else if (lib.startsWith("com.sonyericsson.navigationbar")) {

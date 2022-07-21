@@ -199,7 +199,7 @@ public class QMUIDrawableHelper {
 
         try {
             Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-                    : Bitmap.Config.RGB_565;
+                                                                                                    Bitmap.Config.RGB_565;
             Bitmap bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, config);
             Canvas canvas = new Canvas(bitmap);
             drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -259,7 +259,7 @@ public class QMUIDrawableHelper {
         Drawable[] layers = {separator, bg};
         LayerDrawable layerDrawable = new LayerDrawable(layers);
 
-        layerDrawable.setLayerInset(1, 0, top ? separatorHeight : 0, 0, top ? 0 : separatorHeight);
+        layerDrawable.setLayerInset(1, 0, top ? separatorHeight                                                                                 0, 0, top ? 0                                                                                 separatorHeight);
         return layerDrawable;
     }
 

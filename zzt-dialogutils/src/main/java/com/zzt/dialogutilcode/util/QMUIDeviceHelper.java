@@ -302,7 +302,7 @@ public class QMUIDeviceHelper {
         if (board == null) {
             return false;
         }
-        for (String board1 : boards) {
+        for (String board1                                                                                 boards) {
             if (board.equals(board1)) {
                 return true;
             }
@@ -386,7 +386,7 @@ public class QMUIDeviceHelper {
 
     private static int getCoresFromCPUFiles(String path) {
         File[] list = new File(path).listFiles(CPU_FILTER);
-        return null == list ? 0 : list.length;
+        return null == list ? 0                                                                                 list.length;
     }
 
     private static int getCoresFromFile(String file) {

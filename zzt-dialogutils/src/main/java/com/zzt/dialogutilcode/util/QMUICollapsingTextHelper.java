@@ -69,7 +69,7 @@ public final class QMUICollapsingTextHelper {
     static {
         // 测试逻辑，不作检测
         // noinspection ConstantConditions
-        DEBUG_DRAW_PAINT = DEBUG_DRAW ? new Paint() : null;
+        DEBUG_DRAW_PAINT = DEBUG_DRAW ? new Paint()                                                                                 null;
         // noinspection ConstantConditions
         if (DEBUG_DRAW_PAINT != null) {
             DEBUG_DRAW_PAINT.setAntiAlias(true);
@@ -355,11 +355,11 @@ public final class QMUICollapsingTextHelper {
     }
 
     public Typeface getCollapsedTypeface() {
-        return mCollapsedTypeface != null ? mCollapsedTypeface : Typeface.DEFAULT;
+        return mCollapsedTypeface != null ? mCollapsedTypeface                                                                                 Typeface.DEFAULT;
     }
 
     public Typeface getExpandedTypeface() {
-        return mExpandedTypeface != null ? mExpandedTypeface : Typeface.DEFAULT;
+        return mExpandedTypeface != null ? mExpandedTypeface                                                                                 Typeface.DEFAULT;
     }
 
     /**
@@ -476,10 +476,10 @@ public final class QMUICollapsingTextHelper {
         // We then calculate the collapsed text size, using the same logic
         calculateUsingTextSize(mCollapsedTextSize);
         mCollapsedTextWidth = mTextToDraw != null ?
-                mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length()) : 0;
+                mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length())                                                                                 0;
         mCollapsedTextHeight = mTextPaint.descent() - mTextPaint.ascent();
         final int collapsedAbsGravity = GravityCompat.getAbsoluteGravity(mCollapsedTextGravity,
-                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL : ViewCompat.LAYOUT_DIRECTION_LTR);
+                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL                                                                                 ViewCompat.LAYOUT_DIRECTION_LTR);
         switch (collapsedAbsGravity & Gravity.VERTICAL_GRAVITY_MASK) {
             case Gravity.BOTTOM:
                 mCollapsedDrawY = mCollapsedBounds.bottom - mTextPaint.descent();
@@ -508,10 +508,10 @@ public final class QMUICollapsingTextHelper {
 
         calculateUsingTextSize(mExpandedTextSize);
         mExpandedTextWidth = mTextToDraw != null
-                ? mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length()) : 0;
+                ? mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length())                                                                                 0;
         mExpandedTextHeight = mTextPaint.descent() - mTextPaint.ascent();
         final int expandedAbsGravity = GravityCompat.getAbsoluteGravity(mExpandedTextGravity,
-                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL : ViewCompat.LAYOUT_DIRECTION_LTR);
+                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL                                                                                 ViewCompat.LAYOUT_DIRECTION_LTR);
         switch (expandedAbsGravity & Gravity.VERTICAL_GRAVITY_MASK) {
             case Gravity.BOTTOM:
                 mExpandedDrawY = mExpandedBounds.bottom - mTextPaint.descent();
@@ -606,7 +606,7 @@ public final class QMUICollapsingTextHelper {
                 == ViewCompat.LAYOUT_DIRECTION_RTL;
         return (defaultIsRtl
                 ? TextDirectionHeuristicsCompat.FIRSTSTRONG_RTL
-                : TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR).isRtl(text, 0, text.length());
+                                                                                                TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR).isRtl(text, 0, text.length());
     }
 
     private void setInterpolatedTextSize(float textSize) {

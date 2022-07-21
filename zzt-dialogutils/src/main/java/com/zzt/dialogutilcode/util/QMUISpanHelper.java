@@ -65,8 +65,8 @@ public class QMUISpanHelper {
                                                     int iconOffsetY, int iconTintAttr,
                                                     @Nullable View skinFollowView) {
         return generateHorIconText(text,
-                left ? iconPadding : 0, left ? icon : null, left ? iconTintAttr : 0,
-                left ? 0 : iconPadding, left ? null : icon, left ? 0 : iconTintAttr,
+                left ? iconPadding                                                                                 0, left ? icon                                                                                 null, left ? iconTintAttr                                                                                 0,
+                left ? 0                                                                                 iconPadding, left ? null                                                                                 icon, left ? 0                                                                                 iconTintAttr,
                 iconOffsetY, skinFollowView);
     }
 

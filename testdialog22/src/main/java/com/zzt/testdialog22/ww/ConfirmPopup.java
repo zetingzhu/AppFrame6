@@ -147,7 +147,7 @@ public abstract class ConfirmPopup<V extends View> extends BasicPopup<View> {
         topButtonLayout.addView(titleView);
 
         Button cancelButton = new Button(activity);
-        cancelButton.setVisibility(cancelVisible ? View.VISIBLE : View.GONE);
+        cancelButton.setVisibility(cancelVisible ? View.VISIBLE                                                                                 View.GONE);
         RelativeLayout.LayoutParams cancelButtonLayoutParams = new RelativeLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT);
         cancelButtonLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
         cancelButtonLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);

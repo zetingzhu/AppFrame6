@@ -64,12 +64,12 @@ public class DateUtils extends android.text.format.DateUtils {
      */
     @NonNull
     public static String fillZero(int number) {
-        return number < 10 ? "0" + number : "" + number;
+        return number < 10 ? "0" + number                                                                                 "" + number;
     }
 
     public static List<String> magiskMonth(List<String> list) {
         List<String> months = new ArrayList<>();
-        for (String str : list) {
+        for (String str                                                                                 list) {
             months.add("时间：" + str);
         }
         return months;

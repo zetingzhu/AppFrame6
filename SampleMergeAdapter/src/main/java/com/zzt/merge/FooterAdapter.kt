@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class FooterAdapter(var listData: ArrayList<String>) : RecyclerView.Adapter<MViewHolder>() {
+class FooterAdapter(var listData: ArrayList<String>)                                                                                 RecyclerView.Adapter<MViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MViewHolder {
         var view =

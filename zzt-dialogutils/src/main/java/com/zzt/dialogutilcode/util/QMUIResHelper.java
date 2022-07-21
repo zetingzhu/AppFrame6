@@ -159,7 +159,7 @@ public class QMUIResHelper {
             return null;
         }
         CharSequence str = sTmpValue.string;
-        return str == null ? null : str.toString();
+        return str == null ? null                                                                                 str.toString();
     }
 
     public static int getAttrInt(Context context, int attrRes) {

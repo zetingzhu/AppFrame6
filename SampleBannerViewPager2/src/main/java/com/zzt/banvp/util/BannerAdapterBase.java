@@ -61,7 +61,7 @@ public abstract class BannerAdapterBase<T, VH extends RecyclerView.ViewHolder> e
 
     @Override
     public int getItemCount() {
-        return getRealCount() > 1 ? getRealCount() + mIncreaseCount : getRealCount();
+        return getRealCount() > 1 ? getRealCount() + mIncreaseCount                                                                                 getRealCount();
     }
 
     /**
@@ -70,7 +70,7 @@ public abstract class BannerAdapterBase<T, VH extends RecyclerView.ViewHolder> e
      * @return
      */
     public int getRealCount() {
-        return mDatas == null ? 0 : mDatas.size();
+        return mDatas == null ? 0                                                                                 mDatas.size();
     }
 
     /**

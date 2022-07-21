@@ -583,7 +583,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
 //            final QMUILinearLayout layout = new QMUILinearLayout(context, null, R.attr.qmui_dialog_action_container_style);
             LinearLayout layout = new LinearLayout(context);
             layout.setId(R.id.qmui_dialog_operator_layout_id);
-            layout.setOrientation(mActionContainerOrientation == VERTICAL ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+            layout.setOrientation(mActionContainerOrientation == VERTICAL ? LinearLayout.VERTICAL                                                                                 LinearLayout.HORIZONTAL);
 
             for (int i = 0; i < size; i++) {
 //                if (spaceInsertPos == i) {
@@ -611,7 +611,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
 
                 // add divider
 //                if (mActionDividerThickness > 0 && i > 0 && spaceInsertPos != i) {
-//                    int color = mActionDividerColorAttr == 0 ? mActionDividerColor : QMUISkinHelper.getSkinColor(actionView, mActionDividerColorAttr);
+//                    int color = mActionDividerColorAttr == 0 ? mActionDividerColor                                                                                 QMUISkinHelper.getSkinColor(actionView, mActionDividerColorAttr);
 //                    if (mActionContainerOrientation == VERTICAL) {
 //                        actionView.onlyShowTopDivider(mActionDividerInsetStart,
 //                                mActionDividerInsetEnd, mActionDividerThickness, color);
@@ -674,7 +674,7 @@ public abstract class QMUIDialogBuilder<T extends QMUIDialogBuilder> {
 
     public List<QMUIDialogAction> getPositiveAction() {
         List<QMUIDialogAction> output = new ArrayList<>();
-        for (QMUIDialogAction action : mActions) {
+        for (QMUIDialogAction action                                                                                 mActions) {
             if (action.getActionProp() == QMUIDialogAction.ACTION_PROP_POSITIVE) {
                 output.add(action);
             }

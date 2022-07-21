@@ -128,7 +128,7 @@ public class QMUIReflectHelper {
         final Constructor<?>[] ctors = clazz.getDeclaredConstructors();
 
         loop:
-        for (final Constructor<?> ctor : ctors) {
+        for (final Constructor<?> ctor                                                                                 ctors) {
             final Class<?>[] types = ctor.getParameterTypes();
             if (types.length == args.length) {
                 for (int i = 0; i < types.length; i++) {
@@ -217,7 +217,7 @@ public class QMUIReflectHelper {
             return getField(parent, type);
         }
 
-        for (final Field field : fields) {
+        for (final Field field                                                                                 fields) {
             if (field.getType() == type) {
                 return field;
             }

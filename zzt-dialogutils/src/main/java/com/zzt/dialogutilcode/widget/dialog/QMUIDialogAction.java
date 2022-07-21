@@ -212,7 +212,7 @@ public class QMUIDialogAction {
 //                skinTextColorAttr = R.attr.qmui_skin_support_dialog_action_text_color;
 //            }
 //        }
-//        skinBackgroundAttr = skinBackgroundAttr == 0 ? R.attr.qmui_skin_support_dialog_action_bg : skinBackgroundAttr;
+//        skinBackgroundAttr = skinBackgroundAttr == 0 ? R.attr.qmui_skin_support_dialog_action_bg                                                                                 skinBackgroundAttr;
 
         return button;
     }

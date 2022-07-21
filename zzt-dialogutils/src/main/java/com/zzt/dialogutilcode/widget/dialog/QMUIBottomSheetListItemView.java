@@ -81,7 +81,7 @@ public class QMUIBottomSheetListItemView extends QMUIConstraintLayout {
         lp.rightToLeft = mTextView.getId();
         lp.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
         lp.horizontalChainStyle = ConstraintLayout.LayoutParams.CHAIN_PACKED;
-        lp.horizontalBias = gravityCenter ? 0.5f : 0f;
+        lp.horizontalBias = gravityCenter ? 0.5f                                                                                 0f;
         addView(mIconView, lp);
 
         lp = new ConstraintLayout.LayoutParams(
@@ -91,7 +91,7 @@ public class QMUIBottomSheetListItemView extends QMUIConstraintLayout {
         lp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
         lp.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
         lp.horizontalChainStyle = ConstraintLayout.LayoutParams.CHAIN_PACKED;
-        lp.horizontalBias = gravityCenter ? 0.5f : 0f;
+        lp.horizontalBias = gravityCenter ? 0.5f                                                                                 0f;
         lp.leftMargin = QMUIResHelper.getAttrDimen(
                 context, R.attr.qmui_bottom_sheet_list_item_icon_margin_right);
         lp.goneLeftMargin = 0;
@@ -111,7 +111,7 @@ public class QMUIBottomSheetListItemView extends QMUIConstraintLayout {
         lp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
         lp.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
         lp.horizontalChainStyle = ConstraintLayout.LayoutParams.CHAIN_PACKED;
-        lp.horizontalBias = gravityCenter ? 0.5f : 0f;
+        lp.horizontalBias = gravityCenter ? 0.5f                                                                                 0f;
         lp.leftMargin = QMUIResHelper.getAttrDimen(
                 context, R.attr.qmui_bottom_sheet_list_item_tip_point_margin_left);
         addView(mRedPointView, lp);
@@ -151,10 +151,10 @@ public class QMUIBottomSheetListItemView extends QMUIConstraintLayout {
             mTextView.setTypeface(itemModel.typeface);
         }
 
-        mRedPointView.setVisibility(itemModel.hasRedPoint ? View.VISIBLE : View.GONE);
+        mRedPointView.setVisibility(itemModel.hasRedPoint ? View.VISIBLE                                                                                 View.GONE);
 
         if (mMarkView != null) {
-            mMarkView.setVisibility(isChecked ? View.VISIBLE : View.INVISIBLE);
+            mMarkView.setVisibility(isChecked ? View.VISIBLE                                                                                 View.INVISIBLE);
         }
     }
 

@@ -211,7 +211,7 @@ public class QMUIDialogMenuItemView extends QMUIConstraintLayout {
 
         @Override
         protected void notifyCheckChange(boolean isChecked) {
-            mCheckedView.setVisibility(isChecked ? VISIBLE : INVISIBLE);
+            mCheckedView.setVisibility(isChecked ? VISIBLE                                                                                 INVISIBLE);
         }
     }
 

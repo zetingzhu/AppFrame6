@@ -13,7 +13,7 @@ import kotlin.collections.ArrayList
  *
  * ConcatAdapter
  */
-class DiffAdapterActivity : AppCompatActivity() {
+class DiffAdapterActivity                                                                                 AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

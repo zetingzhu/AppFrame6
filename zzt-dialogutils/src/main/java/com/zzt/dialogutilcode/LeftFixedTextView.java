@@ -91,9 +91,9 @@ public class LeftFixedTextView extends androidx.appcompat.widget.AppCompatTextVi
 //                    }
 //                    float textW = getPaint().measureText(String.valueOf(text));
 //                    float drawLeft = Math.max(leftPadding, getWidth() - textW - getPaddingEnd() - fixedWidth);
-//                    Log.d(TAG, "ssss : " + getBaseline());
-////                    Log.d(TAG, "aaa : " + getFirstBaselineToTopHeight());
-////                    Log.d(TAG, "bbb : " + getLastBaselineToBottomHeight());
+//                    Log.d(TAG, "ssss                                                                                 " + getBaseline());
+////                    Log.d(TAG, "aaa                                                                                 " + getFirstBaselineToTopHeight());
+////                    Log.d(TAG, "bbb                                                                                 " + getLastBaselineToBottomHeight());
 //                    canvas.drawText(fixedText, drawLeft, getBaseline(), fixedPaint);
 //                    break;
 //                case Gravity.CENTER_HORIZONTAL:
