@@ -1,0 +1,60 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.AppFrame6" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">@color/teal_200</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="customActionModeTheme" parent="Theme.AppFrame6">
+        <item name="android:actionModeBackground">@drawable/storage_list_header_shape</item>
+    </style>
+
+    <style name="MActionMode" parent="">
+        <item name="android:background">@drawable/abc_bg</item>
+        <!--        <item name="android:backgroundSplit">?attr/actionModeSplitBackground</item>-->
+        <item name="android:height">60dp</item>
+        <!--        <item name="android:titleTextStyle">-->
+        <!--            @style/TextAppearance.AppCompat.Widget.ActionMode.Title-->
+        <!--        </item>-->
+        <!--        <item name="android:subtitleTextStyle">-->
+        <!--            @style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle-->
+        <!--        </item>-->
+        <!--        <item name="closeItemLayout">@layout/abc_action_mode_close_item_material</item>-->
+    </style>
+
+    <style name="customActionModeThemeAbc" parent="Theme.AppFrame6">
+        <item name="android:colorControlActivated">@color/color_527dff</item>
+        <item name="android:textColorHighlight">@color/color_527dff</item>
+
+        <item name="android:actionModeStyle">@style/MActionMode</item>
+        <item name="android:actionModeBackground">@drawable/abc_cab_background_top_material</item>
+        <!-- 左侧返回按钮图片 -->
+        <item name="android:actionModeCloseDrawable">@mipmap/ic_launcher</item>
+        <!--        <item name="actionModeSplitBackground">?attr/colorPrimaryDark</item>-->
+        <!--        <item name="actionModeCloseDrawable">@drawable/abc_ic_ab_back_mtrl_am_alpha</item>-->
+        <!--        <item name="actionModeCloseButtonStyle">@style/Widget.AppCompat.ActionButton.CloseMode-->
+        <!--        </item>-->
+
+        <!--        <item name="actionModeCutDrawable">@drawable/abc_ic_menu_cut_mtrl_alpha</item>-->
+        <!--        <item name="actionModeCopyDrawable">@drawable/abc_ic_menu_copy_mtrl_am_alpha</item>-->
+        <!--        <item name="actionModePasteDrawable">@drawable/abc_ic_menu_paste_mtrl_am_alpha</item>-->
+        <!--        <item name="actionModeSelectAllDrawable">@drawable/abc_ic_menu_selectall_mtrl_alpha</item>-->
+        <!--        <item name="actionModeShareDrawable">@drawable/abc_ic_menu_share_mtrl_alpha</item>-->
+
+    </style>
+
+    <style name="SearchEditTextStyle">
+        <!--        <item name="android:textSelectHandleLeft">@android :drawable/text_select_handle_left</item>-->
+        <!--        <item name="android:textSelectHandleRight">@android :drawable/text_select_handle_right</item>-->
+        <!--        <item name="android:textSelectHandle">@android :drawable/text_select_handle_middle</item>-->
+        <item name="android:textSelectHandle">@drawable/open_im_text_cursor</item>
+        <item name="android:textSelectHandleLeft">@drawable/open_im_text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/open_im_text_select_handle_right</item>
+        <item name="android:textColorHighlight">@color/color_527dff</item>
+    </style>
+
+
+</resources>

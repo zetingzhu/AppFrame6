@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PathMainActivity extends AppCompatActivity {
     public static final String TAG = "PathMainActivity";
@@ -30,7 +32,7 @@ public class PathMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_path_main);
-
+        initRegex();
         setLogString("获取根路径 : ", PathUtils.getRootPath());
         setLogString("获取数据路径  : ", PathUtils.getDataPath());
         setLogString("获取下载缓存路径 : ", PathUtils.getDownloadCachePath());
@@ -75,6 +77,55 @@ public class PathMainActivity extends AppCompatActivity {
 
         testFile1();
         testFile2();
+    }
+
+    private void initRegex() {
+        String value = "fdaflkjl    www.baidu.com   jfkdajfd skjfldsa f  fdka  http://www.xtrendspeed.com jkfldjakl f" +
+                "jdlafkajf  https://www.qq.com   www.google.com  jkfldjas http://www.123.coi?fda=fdafda fdafd fda www.bbb.ww?aa=bb&cc=cc fds" +
+                "a https://blog.csdn.net/diaomao5080/article/details/102057267 zzzzzzzzz" +
+                "http://118.178.132.117:81/zentao/file-read-21124.png bbbbb" +
+                "aaaaaaaa https://lanhuapp.com/web/#/item/project/stage?pid=8fb38b7d-bfa0-4f23-854e-ce38fa7c090d&image_id=b558dca2-48bf-4072-bbb7-59747a5e17e3&tid=f85dfc8a-145e-4af2-ac29-cf6755dfead4";
+
+        String regexHttp1 = "((https|http)?://)"
+                + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftp的user@
+                + "(([0-9]{1,3}\\.){3}[0-9]{1,3}" // IP形式的URL- 199.194.52.184
+                + "|" // 允许IP和DOMAIN（域名）
+                + "([0-9a-z_!~*'()-]+\\.)*" // 域名- www.
+                + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\." // 二级域名
+                + "[a-z]{2,6})" // first level domain- .com or .museum
+                + "(:[0-9]{1,4})?" // 端口- :80
+                + "((\\?)|" // a slash isn't required if there is no file name
+                + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)*";
+        Pattern patternHttp1 = Pattern.compile(regexHttp1);
+        Matcher matcherHttp1 = patternHttp1.matcher(value);
+
+        int start = 0;
+        int end = 0;
+        while (matcherHttp1.find()) {
+            start = matcherHttp1.start();
+            end = matcherHttp1.end();
+
+            String atagString = value.substring(start, end);
+            Log.w(TAG, "html 解析，111 查找内容：" + atagString);
+
+        }
+        String regexHttp2 = "((https|http)?://)?" +
+                "(([0-9a-z_!~*'()-]+\\.)*" +
+                "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\.[a-z]{2,6})" +
+                "((\\?)|(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+)*";
+        Pattern patternHttp2 = Pattern.compile(regexHttp2);
+        Matcher matcherHttp2 = patternHttp2.matcher(value);
+        while (matcherHttp2.find()) {
+            Log.i(TAG, "html 解析，222 查找内容：" + matcherHttp2.group());
+        }
+
+
+        String regexHttp3 = "(((https|http)?://)?[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-.,@?^=%&:/~+#]*[\\w\\-@?^=%&/~+#])?)";
+        Pattern patternHttp3 = Pattern.compile(regexHttp3);
+        Matcher matcherHttp3 = patternHttp3.matcher(value);
+        while (matcherHttp3.find()) {
+            Log.w(TAG, "html 解析，333 查找内容：" + matcherHttp3.group());
+        }
     }
 
     private void testFile2() {
@@ -176,9 +227,8 @@ public class PathMainActivity extends AppCompatActivity {
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 if (Environment.isExternalStorageManager()) {
-                    // perform action when allow permission success
+
                 } else {
-                    Toast.makeText(this, "Allow permission for storage access!", Toast.LENGTH_SHORT).show();
                 }
             }
         }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_action_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@color/color_4C4C4C"
+        android:orientation="horizontal"
+        app:backgroundTint="@color/color_4C4C4C"
+        tools:backgroundTint="@color/color_4C4C4C">
+
+        <TextView
+            android:id="@+id/tv_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="复制"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="回复"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!--    下面三角形-->
+    <ImageView
+        android:id="@+id/iv_bottom_triangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_action_btn"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
