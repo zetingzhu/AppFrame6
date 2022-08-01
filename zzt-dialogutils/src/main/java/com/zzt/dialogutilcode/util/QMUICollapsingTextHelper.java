@@ -69,7 +69,7 @@ public final class QMUICollapsingTextHelper {
     static {
         // 测试逻辑，不作检测
         // noinspection ConstantConditions
-        DEBUG_DRAW_PAINT = DEBUG_DRAW ? new Paint()                                                                                 null;
+        DEBUG_DRAW_PAINT = DEBUG_DRAW ? new Paint() : null;
         // noinspection ConstantConditions
         if (DEBUG_DRAW_PAINT != null) {
             DEBUG_DRAW_PAINT.setAntiAlias(true);
@@ -137,7 +137,7 @@ public final class QMUICollapsingTextHelper {
     private float mExpandedShadowRadius, mExpandedShadowDx, mExpandedShadowDy;
     private int mExpandedShadowColor;
 
-    public QMUICollapsingTextHelper(View view){
+    public QMUICollapsingTextHelper(View view) {
         this(view, 0f);
     }
 
@@ -162,11 +162,11 @@ public final class QMUICollapsingTextHelper {
         recalculate();
     }
 
-    public void setTextSize(float collapsedTextSize, float expandedTextSize, boolean recalculate){
-        if(mExpandedTextSize != expandedTextSize || mCollapsedTextSize != collapsedTextSize){
+    public void setTextSize(float collapsedTextSize, float expandedTextSize, boolean recalculate) {
+        if (mExpandedTextSize != expandedTextSize || mCollapsedTextSize != collapsedTextSize) {
             mExpandedTextSize = expandedTextSize;
             mCollapsedTextSize = collapsedTextSize;
-            if(recalculate){
+            if (recalculate) {
                 recalculate();
             }
         }
@@ -201,11 +201,11 @@ public final class QMUICollapsingTextHelper {
     }
 
     public void setTextColor(ColorStateList collapsedTextColor, ColorStateList expandedTextColor,
-                             boolean recalculate){
-        if(mCollapsedTextColor != collapsedTextColor || mExpandedTextColor != expandedTextColor){
+                             boolean recalculate) {
+        if (mCollapsedTextColor != collapsedTextColor || mExpandedTextColor != expandedTextColor) {
             mCollapsedTextColor = collapsedTextColor;
             mExpandedTextColor = expandedTextColor;
-            if(recalculate){
+            if (recalculate) {
                 recalculate();
             }
         }
@@ -299,11 +299,11 @@ public final class QMUICollapsingTextHelper {
         return mCollapsedTextGravity;
     }
 
-    public void setGravity(int collapsedGravity, int expandedGravity, boolean recalculate){
-        if(mCollapsedTextGravity != collapsedGravity || mExpandedTextGravity != expandedGravity){
+    public void setGravity(int collapsedGravity, int expandedGravity, boolean recalculate) {
+        if (mCollapsedTextGravity != collapsedGravity || mExpandedTextGravity != expandedGravity) {
             mCollapsedTextGravity = collapsedGravity;
             mExpandedTextGravity = expandedGravity;
-            if(recalculate){
+            if (recalculate) {
                 recalculate();
             }
         }
@@ -325,11 +325,11 @@ public final class QMUICollapsingTextHelper {
         return null;
     }
 
-    public void setTypeface(Typeface collapsedTypeface, Typeface expandedTypeface, boolean recalculate){
-        if(mCollapsedTypeface != collapsedTypeface || mExpandedTypeface != expandedTypeface){
+    public void setTypeface(Typeface collapsedTypeface, Typeface expandedTypeface, boolean recalculate) {
+        if (mCollapsedTypeface != collapsedTypeface || mExpandedTypeface != expandedTypeface) {
             mCollapsedTypeface = collapsedTypeface;
             mExpandedTypeface = expandedTypeface;
-            if(recalculate){
+            if (recalculate) {
                 recalculate();
             }
         }
@@ -355,11 +355,11 @@ public final class QMUICollapsingTextHelper {
     }
 
     public Typeface getCollapsedTypeface() {
-        return mCollapsedTypeface != null ? mCollapsedTypeface                                                                                 Typeface.DEFAULT;
+        return mCollapsedTypeface != null ? mCollapsedTypeface : Typeface.DEFAULT;
     }
 
     public Typeface getExpandedTypeface() {
-        return mExpandedTypeface != null ? mExpandedTypeface                                                                                 Typeface.DEFAULT;
+        return mExpandedTypeface != null ? mExpandedTypeface : Typeface.DEFAULT;
     }
 
     /**
@@ -448,7 +448,7 @@ public final class QMUICollapsingTextHelper {
 
     @ColorInt
     private int getCurrentExpandedTextColor() {
-        if(mExpandedTextColor == null){
+        if (mExpandedTextColor == null) {
             return 0;
         }
         if (mState != null) {
@@ -460,7 +460,7 @@ public final class QMUICollapsingTextHelper {
 
     @ColorInt
     private int getCurrentCollapsedTextColor() {
-        if(mCollapsedTextColor == null){
+        if (mCollapsedTextColor == null) {
             return 0;
         }
         if (mState != null) {
@@ -476,10 +476,10 @@ public final class QMUICollapsingTextHelper {
         // We then calculate the collapsed text size, using the same logic
         calculateUsingTextSize(mCollapsedTextSize);
         mCollapsedTextWidth = mTextToDraw != null ?
-                mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length())                                                                                 0;
+                mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length()) : 0;
         mCollapsedTextHeight = mTextPaint.descent() - mTextPaint.ascent();
         final int collapsedAbsGravity = GravityCompat.getAbsoluteGravity(mCollapsedTextGravity,
-                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL                                                                                 ViewCompat.LAYOUT_DIRECTION_LTR);
+                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL : ViewCompat.LAYOUT_DIRECTION_LTR);
         switch (collapsedAbsGravity & Gravity.VERTICAL_GRAVITY_MASK) {
             case Gravity.BOTTOM:
                 mCollapsedDrawY = mCollapsedBounds.bottom - mTextPaint.descent();
@@ -508,10 +508,10 @@ public final class QMUICollapsingTextHelper {
 
         calculateUsingTextSize(mExpandedTextSize);
         mExpandedTextWidth = mTextToDraw != null
-                ? mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length())                                                                                 0;
+                ? mTextPaint.measureText(mTextToDraw, 0, mTextToDraw.length()) : 0;
         mExpandedTextHeight = mTextPaint.descent() - mTextPaint.ascent();
         final int expandedAbsGravity = GravityCompat.getAbsoluteGravity(mExpandedTextGravity,
-                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL                                                                                 ViewCompat.LAYOUT_DIRECTION_LTR);
+                mIsRtl ? ViewCompat.LAYOUT_DIRECTION_RTL : ViewCompat.LAYOUT_DIRECTION_LTR);
         switch (expandedAbsGravity & Gravity.VERTICAL_GRAVITY_MASK) {
             case Gravity.BOTTOM:
                 mExpandedDrawY = mExpandedBounds.bottom - mTextPaint.descent();
@@ -605,8 +605,8 @@ public final class QMUICollapsingTextHelper {
         final boolean defaultIsRtl = ViewCompat.getLayoutDirection(mView)
                 == ViewCompat.LAYOUT_DIRECTION_RTL;
         return (defaultIsRtl
-                ? TextDirectionHeuristicsCompat.FIRSTSTRONG_RTL
-                                                                                                TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR).isRtl(text, 0, text.length());
+                ? TextDirectionHeuristicsCompat.FIRSTSTRONG_RTL :
+                TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR).isRtl(text, 0, text.length());
     }
 
     private void setInterpolatedTextSize(float textSize) {
@@ -633,12 +633,12 @@ public final class QMUICollapsingTextHelper {
         final float newTextSize;
         boolean updateDrawText = false;
 
-        if(mExpandedFraction >= 1f - mTypefaceUpdateAreaPercent){
+        if (mExpandedFraction >= 1f - mTypefaceUpdateAreaPercent) {
             if (mCurrentTypeface != mCollapsedTypeface) {
                 mCurrentTypeface = mCollapsedTypeface;
                 updateDrawText = true;
             }
-        }else if(mExpandedFraction <= mTypefaceUpdateAreaPercent){
+        } else if (mExpandedFraction <= mTypefaceUpdateAreaPercent) {
             if (mCurrentTypeface != mExpandedTypeface) {
                 mCurrentTypeface = mExpandedTypeface;
                 updateDrawText = true;
@@ -801,7 +801,7 @@ public final class QMUICollapsingTextHelper {
     }
 
     public static float lerp(float startValue, float endValue, float fraction,
-                              Interpolator interpolator) {
+                             Interpolator interpolator) {
         if (interpolator != null) {
             fraction = interpolator.getInterpolation(fraction);
         }

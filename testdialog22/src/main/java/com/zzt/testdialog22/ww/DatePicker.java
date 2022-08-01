@@ -120,7 +120,6 @@ public class DatePicker extends WheelPicker {
     }
 
 
-
     public void setOnDatePickListener(OnDatePickListener listener) {
         this.onDatePickListener = listener;
     }
@@ -146,7 +145,7 @@ public class DatePicker extends WheelPicker {
 //        layout.setGravity(Gravity.CENTER);
 //        layout.setBackgroundColor(activity.getResources().getColor(R.color.white));
 
-        WheelView yearView = new WheelView(activity );
+        WheelView yearView = new WheelView(activity);
         yearView.setLayoutParams(new LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT));
         yearView.setTextSize(textSize);
         yearView.setTextColor(textColorNormal, textColorFocus);
@@ -301,8 +300,8 @@ public class DatePicker extends WheelPicker {
             public int compare(Object lhs, Object rhs) {
                 String lhsStr = lhs.toString();
                 String rhsStr = rhs.toString();
-                lhsStr = lhsStr.startsWith("0") ? lhsStr.substring(1)                                                                                 lhsStr;
-                rhsStr = rhsStr.startsWith("0") ? rhsStr.substring(1)                                                                                 rhsStr;
+                lhsStr = lhsStr.startsWith("0") ? lhsStr.substring(1) : lhsStr;
+                rhsStr = rhsStr.startsWith("0") ? rhsStr.substring(1) : rhsStr;
                 return Integer.parseInt(lhsStr) - Integer.parseInt(rhsStr);
             }
         });
@@ -330,7 +329,7 @@ public class DatePicker extends WheelPicker {
     }
 
     private int changeMonthData(int year) {
-        String preSelectMonth = months.size() > selectedMonthIndex ? months.get(selectedMonthIndex)                                                                                 null;
+        String preSelectMonth = months.size() > selectedMonthIndex ? months.get(selectedMonthIndex) : null;
         months.clear();
         if (startMonth < 1 || endMonth < 1 || startMonth > 12 || endMonth > 12) {
             throw new IllegalArgumentException("month out of range [1-12]");
@@ -358,13 +357,13 @@ public class DatePicker extends WheelPicker {
             }
         }
         //当前设置的月份不在指定范围，则默认选中范围开始的月份
-        int preSelectMonthIndex = preSelectMonth == null ? 0                                                                                 months.indexOf(preSelectMonth);
-        selectedMonthIndex = preSelectMonthIndex == -1 ? 0                                                                                 preSelectMonthIndex;
+        int preSelectMonthIndex = preSelectMonth == null ? 0 : months.indexOf(preSelectMonth);
+        selectedMonthIndex = preSelectMonthIndex == -1 ? 0 : preSelectMonthIndex;
         return DateUtils.trimZero(months.get(selectedMonthIndex));
     }
 
     private void changeDayData(int year, int month) {
-        String preSelectDay = days.size() > selectedDayIndex ? days.get(selectedDayIndex)                                                                                 null;
+        String preSelectDay = days.size() > selectedDayIndex ? days.get(selectedDayIndex) : null;
         days.clear();
         int maxDays = DateUtils.calculateDaysInMonth(year, month);
         if (year == startYear && month == startMonth) {
@@ -372,15 +371,15 @@ public class DatePicker extends WheelPicker {
                 days.add(DateUtils.fillZero(i));
             }
             //当前设置的日子不在指定范围，则默认选中范围开始的日子
-            int preSelectDayIndex = preSelectDay == null ? 0                                                                                 days.indexOf(preSelectDay);
-            selectedDayIndex = preSelectDayIndex == -1 ? 0                                                                                 preSelectDayIndex;
+            int preSelectDayIndex = preSelectDay == null ? 0 : days.indexOf(preSelectDay);
+            selectedDayIndex = preSelectDayIndex == -1 ? 0 : preSelectDayIndex;
         } else if (year == endYear && month == endMonth) {
             for (int i = 1; i <= endDay; i++) {
                 days.add(DateUtils.fillZero(i));
             }
             //当前设置的日子不在指定范围，则默认选中范围开始的日子
-            int preSelectDayIndex = preSelectDay == null ? 0                                                                                 days.indexOf(preSelectDay);
-            selectedDayIndex = preSelectDayIndex == -1 ? 0                                                                                 preSelectDayIndex;
+            int preSelectDayIndex = preSelectDay == null ? 0 : days.indexOf(preSelectDay);
+            selectedDayIndex = preSelectDayIndex == -1 ? 0 : preSelectDayIndex;
         } else {
             for (int i = 1; i <= maxDays; i++) {
                 days.add(DateUtils.fillZero(i));

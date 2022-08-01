@@ -39,7 +39,7 @@ public class QMUIColorHelper {
      * @return 返回改变了 alpha 值的颜色值
      */
     public static int setColorAlpha(@ColorInt int color, float alpha, boolean override) {
-        int origin = override ? 0xff                                                                                 (color >> 24) & 0xff;
+        int origin = override ? 0xff : (color >> 24) & 0xff;
         return color & 0x00ffffff | (int) (alpha * origin) << 24;
     }
 

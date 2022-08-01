@@ -40,7 +40,7 @@ public class LeftFixedTextView extends androidx.appcompat.widget.AppCompatTextVi
     }
 
 
-    public LeftFixedTextView(@NonNull Context context ) {
+    public LeftFixedTextView(@NonNull Context context) {
         super(context);
         initView(context);
     }
@@ -51,6 +51,7 @@ public class LeftFixedTextView extends androidx.appcompat.widget.AppCompatTextVi
         setPadding(newLeftPadding, getPaddingTop(), getPaddingBottom(), getPaddingRight());
         invalidate();
     }
+
     public void setFixedText(String text) {
         fixedText = text;
         leftPadding = getPaddingLeft();
@@ -78,7 +79,7 @@ public class LeftFixedTextView extends androidx.appcompat.widget.AppCompatTextVi
         Log.d(TAG, "leftPadding:" + leftPadding);
 
         Log.d(TAG, "getScrollX:" + getScrollX());
-        Log.d(TAG, "w:" + canvas.getWidth() + "  H:" + canvas.getHeight() );
+        Log.d(TAG, "w:" + canvas.getWidth() + "  H:" + canvas.getHeight());
 
         if (!TextUtils.isEmpty(fixedText)) {
 //            int mGravity = getGravity();
@@ -91,9 +92,9 @@ public class LeftFixedTextView extends androidx.appcompat.widget.AppCompatTextVi
 //                    }
 //                    float textW = getPaint().measureText(String.valueOf(text));
 //                    float drawLeft = Math.max(leftPadding, getWidth() - textW - getPaddingEnd() - fixedWidth);
-//                    Log.d(TAG, "ssss                                                                                 " + getBaseline());
-////                    Log.d(TAG, "aaa                                                                                 " + getFirstBaselineToTopHeight());
-////                    Log.d(TAG, "bbb                                                                                 " + getLastBaselineToBottomHeight());
+//                    Log.d(TAG, "ssss:" + getBaseline());
+////                    Log.d(TAG, "aaa:" + getFirstBaselineToTopHeight());
+////                    Log.d(TAG, "bbb:" + getLastBaselineToBottomHeight());
 //                    canvas.drawText(fixedText, drawLeft, getBaseline(), fixedPaint);
 //                    break;
 //                case Gravity.CENTER_HORIZONTAL:

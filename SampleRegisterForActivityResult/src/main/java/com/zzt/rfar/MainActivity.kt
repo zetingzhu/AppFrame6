@@ -23,7 +23,7 @@ import com.zzt.adapter.StartActivityRecyclerAdapter
 import com.zzt.entity.StartActivityDao
 import java.io.File
 
-class MainActivity                                                                                 AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     val TAG = MainActivity::class.java.simpleName
 
     var rv_list: RecyclerView? = null

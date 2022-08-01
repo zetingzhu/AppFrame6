@@ -7,7 +7,7 @@ import com.zzt.adapter.StartActivityRecyclerAdapter
 import com.zzt.entity.StartActivityDao
 import com.zzt.sampleflow.databinding.ActivityFlowBinding
 
-class FlowActivity                                                                                 AppCompatActivity() {
+class FlowActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFlowBinding
     var daoList: MutableList<StartActivityDao> = mutableListOf()
 

@@ -29,6 +29,7 @@ public class QMUIReflectHelper {
 
     private QMUIReflectHelper() {
     }
+
     @SuppressWarnings("unchecked")
     public static <T> T getStaticFieldValue(final Class<?> cls, final String name) {
         if (null != cls && null != name) {
@@ -128,7 +129,7 @@ public class QMUIReflectHelper {
         final Constructor<?>[] ctors = clazz.getDeclaredConstructors();
 
         loop:
-        for (final Constructor<?> ctor                                                                                 ctors) {
+        for (final Constructor<?> ctor : ctors) {
             final Class<?>[] types = ctor.getParameterTypes();
             if (types.length == args.length) {
                 for (int i = 0; i < types.length; i++) {
@@ -217,7 +218,7 @@ public class QMUIReflectHelper {
             return getField(parent, type);
         }
 
-        for (final Field field                                                                                 fields) {
+        for (final Field field : fields) {
             if (field.getType() == type) {
                 return field;
             }

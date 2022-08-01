@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
-class ContentAdapter(var listData: MutableList<String>)                                                                                 RecyclerView.Adapter<MViewHolder>() {
+class ContentAdapter(var listData: MutableList<String>) : RecyclerView.Adapter<MViewHolder>() {
     val TAG = ContentAdapter::class.java.simpleName
 
     fun refreshListData(newList: MutableList<String>?) {

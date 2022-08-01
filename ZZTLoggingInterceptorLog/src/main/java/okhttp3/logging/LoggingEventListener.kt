@@ -39,7 +39,7 @@
 // */
 //class LoggingEventListener private constructor(
 //  private val logger: HttpLoggingInterceptor.Logger
-//)                                                                                 EventListener() {
+//):EventListener() {
 //  private var startNs: Long = 0
 //
 //  override fun callStart(call: Call) {
@@ -178,7 +178,7 @@
 //
 //  open class Factory @JvmOverloads constructor(
 //    private val logger: HttpLoggingInterceptor.Logger = HttpLoggingInterceptor.Logger.DEFAULT
-//  )                                                                                 EventListener.Factory {
+//  ):EventListener.Factory {
 //    override fun create(call: Call): EventListener = LoggingEventListener(logger)
 //  }
 //}

@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.zzt.merge.databinding.ItemListTextBinding
 
-class HeaderAdapter(var listData: MutableList<String>)                                                                                 RecyclerView.Adapter<BindingViewHolder>() {
+class HeaderAdapter(var listData: MutableList<String>) : RecyclerView.Adapter<BindingViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder {

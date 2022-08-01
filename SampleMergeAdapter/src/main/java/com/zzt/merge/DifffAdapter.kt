@@ -48,7 +48,7 @@ class DifffAdapter(var listData: MutableList<String>) :
         return listData.size
     }
 
-    class DiffViewHolder(itemView: View)                                                                                 RecyclerView.ViewHolder(itemView) {
+    class DiffViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title: TextView = itemView.findViewById<TextView>(R.id.tv_title)
     }
 }

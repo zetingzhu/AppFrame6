@@ -29,9 +29,9 @@ import javax.net.ssl.HttpsURLConnection;
 /**
  * <pre>
  *     author: Blankj
- *     blog                                                                                  http://blankj.com
- *     time                                                                                  2016/05/03
- *     desc                                                                                  utils about file
+ *     blog: http://blankj.com
+ *     time: 2016/05/03
+ *     desc: utils about file
  * </pre>
  */
 public final class FileUtils {

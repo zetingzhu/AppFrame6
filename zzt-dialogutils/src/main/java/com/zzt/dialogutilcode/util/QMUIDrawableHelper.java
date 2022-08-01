@@ -169,13 +169,13 @@ public class QMUIDrawableHelper {
     /**
      * 设置Drawable的颜色
      * <b>这里不对Drawable进行mutate()，会影响到所有用到这个Drawable的地方，如果要避免，请先自行mutate()</b>
-     *
+     * <p>
      * please use {@link DrawableCompat#setTint(Drawable, int)} replace this.
      */
     @Deprecated
     public static ColorFilter setDrawableTintColor(Drawable drawable, @ColorInt int tintColor) {
         LightingColorFilter colorFilter = new LightingColorFilter(Color.argb(255, 0, 0, 0), tintColor);
-        if(drawable != null){
+        if (drawable != null) {
             drawable.setColorFilter(colorFilter);
         }
         return colorFilter;
@@ -199,7 +199,7 @@ public class QMUIDrawableHelper {
 
         try {
             Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-                                                                                                    Bitmap.Config.RGB_565;
+                    : Bitmap.Config.RGB_565;
             Bitmap bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, config);
             Canvas canvas = new Canvas(bitmap);
             drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -259,7 +259,7 @@ public class QMUIDrawableHelper {
         Drawable[] layers = {separator, bg};
         LayerDrawable layerDrawable = new LayerDrawable(layers);
 
-        layerDrawable.setLayerInset(1, 0, top ? separatorHeight                                                                                 0, 0, top ? 0                                                                                 separatorHeight);
+        layerDrawable.setLayerInset(1, 0, top ? separatorHeight : 0, 0, top ? 0 : separatorHeight);
         return layerDrawable;
     }
 

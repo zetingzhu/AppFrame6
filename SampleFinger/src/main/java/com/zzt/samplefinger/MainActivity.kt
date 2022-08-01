@@ -5,7 +5,7 @@
 //import android.widget.Button
 //import androidx.core.hardware.fingerprint.FingerprintManagerCompat
 //
-//class MainActivity                                                                                 AppCompatActivity() {
+//class MainActivity:AppCompatActivity() {
 //
 //    /**
 //     * A class that coordinates access to the fingerprint hardware.

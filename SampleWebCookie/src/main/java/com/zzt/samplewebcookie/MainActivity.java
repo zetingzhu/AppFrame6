@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     WebView webView;
     ViewGroup rel_content;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     Map<String, String> requestHeaders = request.getRequestHeaders();
                     Set<Map.Entry<String, String>> entries = requestHeaders.entrySet();
                     stringBuffer.append("Headers:");
-                    for (Map.Entry<String, String> entry                                                                                 entries) {
+                    for (Map.Entry<String, String> entry : entries) {
                         stringBuffer.append("\n\t\t key:" + entry.getKey() + " value:" + entry.getValue());
                     }
                     stringBuffer.append("\n");

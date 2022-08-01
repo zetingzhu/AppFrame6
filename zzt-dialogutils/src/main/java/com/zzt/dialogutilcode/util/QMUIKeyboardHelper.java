@@ -50,7 +50,7 @@ public class QMUIKeyboardHelper {
 
 
     public static void showKeyboard(final EditText editText, boolean delay) {
-        showKeyboard(editText, delay ? SHOW_KEYBOARD_DELAY_TIME                                                                                 0);
+        showKeyboard(editText, delay ? SHOW_KEYBOARD_DELAY_TIME : 0);
     }
 
 
@@ -100,7 +100,7 @@ public class QMUIKeyboardHelper {
     }
 
 
-    public static void listenKeyBoardWithOffsetSelf(final View view, final boolean minusNav){
+    public static void listenKeyBoardWithOffsetSelf(final View view, final boolean minusNav) {
 //        ViewCompat.setWindowInsetsAnimationCallback(view, new WindowInsetsAnimationCompat.Callback(WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_STOP) {
 //            @NonNull
 //            @Override
@@ -118,7 +118,7 @@ public class QMUIKeyboardHelper {
 //        });
     }
 
-    public static void listenKeyBoardWithOffsetSelfHalf(final View view, final boolean minusNav){
+    public static void listenKeyBoardWithOffsetSelfHalf(final View view, final boolean minusNav) {
 //        ViewCompat.setWindowInsetsAnimationCallback(view, new WindowInsetsAnimationCompat.Callback(WindowInsetsAnimationCompat.Callback.DISPATCH_MODE_STOP) {
 //            @NonNull
 //            @Override

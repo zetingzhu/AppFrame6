@@ -38,7 +38,7 @@
 // */
 //class HttpLoggingInterceptor @JvmOverloads constructor(
 //  private val logger: Logger = Logger.DEFAULT
-//)                                                                                 Interceptor {
+//):Interceptor {
 //
 //  @Volatile private var headersToRedact = emptySet<String>()
 //
@@ -115,7 +115,7 @@
 //      /** A [Logger] defaults output appropriate for the current platform. */
 //      @JvmField
 //      val DEFAULT: Logger = DefaultLogger()
-//      private class DefaultLogger                                                                                 Logger {
+//      private class DefaultLogger:Logger {
 //        override fun log(message: String) {
 //          Platform.get().log(message)
 //        }

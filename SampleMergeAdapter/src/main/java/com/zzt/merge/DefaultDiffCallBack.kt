@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 class DefaultDiffCallBack(
     private val mOldDatas: MutableList<String>?,
     private val mNewDatas: MutableList<String>?
-)                                                                                 DiffUtil.Callback() {
+) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return mOldDatas?.size ?: 0
     }

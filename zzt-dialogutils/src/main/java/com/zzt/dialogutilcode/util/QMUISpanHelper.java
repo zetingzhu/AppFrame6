@@ -48,14 +48,14 @@ public class QMUISpanHelper {
 
     public static CharSequence generateSideIconText(boolean left,
                                                     int iconPadding, CharSequence text, Drawable icon,
-                                                    int iconOffsetY){
+                                                    int iconOffsetY) {
         return generateSideIconText(
                 left, iconPadding, text, icon, iconOffsetY, 0, null);
     }
 
     public static CharSequence generateSideIconText(boolean left,
                                                     int iconPadding, CharSequence text, Drawable icon,
-                                                    int iconTintAttr, @Nullable View skinFollowView){
+                                                    int iconTintAttr, @Nullable View skinFollowView) {
         return generateSideIconText(
                 left, iconPadding, text, icon, 0, iconTintAttr, skinFollowView);
     }
@@ -65,17 +65,16 @@ public class QMUISpanHelper {
                                                     int iconOffsetY, int iconTintAttr,
                                                     @Nullable View skinFollowView) {
         return generateHorIconText(text,
-                left ? iconPadding                                                                                 0, left ? icon                                                                                 null, left ? iconTintAttr                                                                                 0,
-                left ? 0                                                                                 iconPadding, left ? null                                                                                 icon, left ? 0                                                                                 iconTintAttr,
+                left ? iconPadding : 0, left ? icon : null, left ? iconTintAttr : 0,
+                left ? 0 : iconPadding, left ? null : icon, left ? 0 : iconTintAttr,
                 iconOffsetY, skinFollowView);
     }
-
 
 
     public static CharSequence generateHorIconText(CharSequence text,
                                                    int leftPadding, Drawable iconLeft,
                                                    int rightPadding, Drawable iconRight) {
-        return generateHorIconText(text, leftPadding, iconLeft, rightPadding, iconRight,0);
+        return generateHorIconText(text, leftPadding, iconLeft, rightPadding, iconRight, 0);
     }
 
 
@@ -92,7 +91,7 @@ public class QMUISpanHelper {
                                                    int rightPadding, Drawable iconRight, int iconRightTintAttr,
                                                    @Nullable View skinFollowView) {
         return generateHorIconText(text, leftPadding, iconLeft, iconLeftTintAttr,
-                rightPadding, iconRight, iconRightTintAttr,0, skinFollowView);
+                rightPadding, iconRight, iconRightTintAttr, 0, skinFollowView);
     }
 
     public static CharSequence generateHorIconText(CharSequence text,

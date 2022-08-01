@@ -89,7 +89,7 @@ public class QMUIStatusBarHelper {
 //            handleDisplayCutoutMode(window);
 //        }
 
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             // 小米 Android 6.0 ，开发版 7.7.13 及以后版本设置黑色字体又需要 clear FLAG_TRANSLUCENT_STATUS, 因此还原为官方模式
             if (QMUIDeviceHelper.isFlymeLowerThan(8) || (QMUIDeviceHelper.isMIUI() && Build.VERSION.SDK_INT < Build.VERSION_CODES.M)) {
                 window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
@@ -121,6 +121,7 @@ public class QMUIStatusBarHelper {
 
     /**
      * 如果原本存在某一个flag， 就将它迁移到 out
+     *
      * @param window
      * @param out
      * @param type
@@ -243,12 +244,12 @@ public class QMUIStatusBarHelper {
      */
     @TargetApi(23)
     private static boolean Android6SetStatusBarLightMode(Window window, boolean light) {
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.R){
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
 //            WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(window, window.getDecorView());
 //            if(insetsController != null){
 //                insetsController.setAppearanceLightStatusBars(light);
 //            }
-        }else{
+        } else {
             // 经过测试，小米 Android 11 用  WindowInsetsControllerCompat 不起作用， 我还能说什么呢。。。
             View decorView = window.getDecorView();
             int systemUi = decorView.getSystemUiVisibility();
@@ -383,7 +384,7 @@ public class QMUIStatusBarHelper {
         String[] systemSharedLibraryNames = context.getPackageManager()
                 .getSystemSharedLibraryNames();
         String fieldName = null;
-        for (String lib                                                                                 systemSharedLibraryNames) {
+        for (String lib : systemSharedLibraryNames) {
             if ("touchwiz".equals(lib)) {
                 fieldName = "SYSTEM_UI_FLAG_TRANSPARENT_BACKGROUND";
             } else if (lib.startsWith("com.sonyericsson.navigationbar")) {
@@ -448,7 +449,7 @@ public class QMUIStatusBarHelper {
 //            if (sVirtualDensity == -1) {
 //                sStatusBarHeight = QMUIDisplayHelper.dp2px(context, STATUS_BAR_DEFAULT_HEIGHT_DP);
 //            } else {
-                sStatusBarHeight = (int) (STATUS_BAR_DEFAULT_HEIGHT_DP * sVirtualDensity + 0.5f);
+            sStatusBarHeight = (int) (STATUS_BAR_DEFAULT_HEIGHT_DP * sVirtualDensity + 0.5f);
 //            }
         }
     }

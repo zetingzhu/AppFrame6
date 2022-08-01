@@ -82,8 +82,8 @@ public class QMUIDeviceHelper {
     private static int sCpuCoreCount = -1;
     private static boolean isInfoReaded = false;
 
-    private static void checkReadInfo(){
-        if(isInfoReaded){
+    private static void checkReadInfo() {
+        if (isInfoReaded) {
             return;
         }
         isInfoReaded = true;
@@ -142,6 +142,7 @@ public class QMUIDeviceHelper {
             return !TextUtils.isEmpty(sFlymeVersionName) && sFlymeVersionName.contains(FLYME);
         }
     };
+
     public static boolean isFlyme() {
         return isFlymeValue.get(null);
     }
@@ -228,6 +229,7 @@ public class QMUIDeviceHelper {
             return isPhone(MEIZUBOARD) || isFlyme();
         }
     };
+
     public static boolean isMeizu() {
         return isMeizuValue.get(null);
     }
@@ -242,6 +244,7 @@ public class QMUIDeviceHelper {
             return Build.MANUFACTURER.toLowerCase().equals("xiaomi");
         }
     };
+
     public static boolean isXiaomi() {
         return isXiaomiValue.get(null);
     }
@@ -252,6 +255,7 @@ public class QMUIDeviceHelper {
             return BRAND.contains("vivo") || BRAND.contains("bbk");
         }
     };
+
     public static boolean isVivo() {
         return isVivoValue.get(null);
     }
@@ -262,6 +266,7 @@ public class QMUIDeviceHelper {
             return BRAND.contains("oppo");
         }
     };
+
     public static boolean isOppo() {
         return isOppoValue.get(null);
     }
@@ -272,6 +277,7 @@ public class QMUIDeviceHelper {
             return BRAND.contains("huawei") || BRAND.contains("honor");
         }
     };
+
     public static boolean isHuawei() {
         return isHuaweiValue.get(null);
     }
@@ -282,6 +288,7 @@ public class QMUIDeviceHelper {
             return BRAND.contains("essential");
         }
     };
+
     public static boolean isEssentialPhone() {
         return isEssentialPhoneValue.get(null);
     }
@@ -292,7 +299,8 @@ public class QMUIDeviceHelper {
             return isMIUI() && Settings.Global.getInt(param.getContentResolver(), "force_fsg_nav_bar", 0) != 0;
         }
     };
-    public static boolean isMiuiFullDisplay(Context context){
+
+    public static boolean isMiuiFullDisplay(Context context) {
         return isMiuiFullDisplayValue.get(context);
     }
 
@@ -302,7 +310,7 @@ public class QMUIDeviceHelper {
         if (board == null) {
             return false;
         }
-        for (String board1                                                                                 boards) {
+        for (String board1 : boards) {
             if (board.equals(board1)) {
                 return true;
             }
@@ -386,7 +394,7 @@ public class QMUIDeviceHelper {
 
     private static int getCoresFromCPUFiles(String path) {
         File[] list = new File(path).listFiles(CPU_FILTER);
-        return null == list ? 0                                                                                 list.length;
+        return null == list ? 0 : list.length;
     }
 
     private static int getCoresFromFile(String file) {

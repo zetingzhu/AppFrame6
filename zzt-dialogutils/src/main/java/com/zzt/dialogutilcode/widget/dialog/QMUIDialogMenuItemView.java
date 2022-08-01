@@ -211,7 +211,7 @@ public class QMUIDialogMenuItemView extends QMUIConstraintLayout {
 
         @Override
         protected void notifyCheckChange(boolean isChecked) {
-            mCheckedView.setVisibility(isChecked ? VISIBLE                                                                                 INVISIBLE);
+            mCheckedView.setVisibility(isChecked ? VISIBLE : INVISIBLE);
         }
     }
 
@@ -245,20 +245,20 @@ public class QMUIDialogMenuItemView extends QMUIConstraintLayout {
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             checkLp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
             checkLp.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
-            if(right){
+            if (right) {
                 checkLp.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID;
-            }else{
+            } else {
                 checkLp.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
             }
             addView(mCheckedView, checkLp);
 
             mTextView = createItemTextView(mContext);
             ConstraintLayout.LayoutParams tvLp = new ConstraintLayout.LayoutParams(0, 0);
-            if(right){
+            if (right) {
                 tvLp.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
                 tvLp.rightToLeft = mCheckedView.getId();
                 tvLp.rightMargin = markMarginHor;
-            }else{
+            } else {
                 tvLp.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID;
                 tvLp.leftToRight = mCheckedView.getId();
                 tvLp.leftMargin = markMarginHor;

@@ -190,7 +190,7 @@ public class QMUIDialogAction {
         if (iconRes <= 0) {
             button.setText(text);
         } else {
-            button.setText(QMUISpanHelper.generateSideIconText(  true, iconSpace, text, ContextCompat.getDrawable(context, iconRes), iconTintColor, button));
+            button.setText(QMUISpanHelper.generateSideIconText(true, iconSpace, text, ContextCompat.getDrawable(context, iconRes), iconTintColor, button));
         }
 
 
@@ -212,7 +212,7 @@ public class QMUIDialogAction {
 //                skinTextColorAttr = R.attr.qmui_skin_support_dialog_action_text_color;
 //            }
 //        }
-//        skinBackgroundAttr = skinBackgroundAttr == 0 ? R.attr.qmui_skin_support_dialog_action_bg                                                                                 skinBackgroundAttr;
+//        skinBackgroundAttr = skinBackgroundAttr == 0 ? R.attr.qmui_skin_support_dialog_action_bg:skinBackgroundAttr;
 
         return button;
     }

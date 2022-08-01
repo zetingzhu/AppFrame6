@@ -11,7 +11,7 @@ import com.zzt.merge.databinding.ItemListTextBinding
  * @date: 2021/11/17
  *
  */
-class BindingViewHolder(var binding: ItemListTextBinding)                                                                                 RecyclerView.ViewHolder(binding.root) {
+class BindingViewHolder(var binding: ItemListTextBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun setData(title: String) {
         binding.tvTitle.apply {

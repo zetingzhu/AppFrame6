@@ -41,7 +41,7 @@ public class CompositeOnPageChangeCallback extends ViewPager2.OnPageChangeCallba
     @Override
     public void onPageScrolled(int position, float positionOffset, @Px int positionOffsetPixels) {
         try {
-            for (ViewPager2.OnPageChangeCallback callback                                                                                 mCallbacks) {
+            for (ViewPager2.OnPageChangeCallback callback : mCallbacks) {
                 callback.onPageScrolled(position, positionOffset, positionOffsetPixels);
             }
         } catch (ConcurrentModificationException ex) {
@@ -55,7 +55,7 @@ public class CompositeOnPageChangeCallback extends ViewPager2.OnPageChangeCallba
     @Override
     public void onPageSelected(int position) {
         try {
-            for (ViewPager2.OnPageChangeCallback callback                                                                                 mCallbacks) {
+            for (ViewPager2.OnPageChangeCallback callback : mCallbacks) {
                 callback.onPageSelected(position);
             }
         } catch (ConcurrentModificationException ex) {
@@ -69,7 +69,7 @@ public class CompositeOnPageChangeCallback extends ViewPager2.OnPageChangeCallba
     @Override
     public void onPageScrollStateChanged(@ViewPager2.ScrollState int state) {
         try {
-            for (ViewPager2.OnPageChangeCallback callback                                                                                 mCallbacks) {
+            for (ViewPager2.OnPageChangeCallback callback : mCallbacks) {
                 callback.onPageScrollStateChanged(state);
             }
         } catch (ConcurrentModificationException ex) {

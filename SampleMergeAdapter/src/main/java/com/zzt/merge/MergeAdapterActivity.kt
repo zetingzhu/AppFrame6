@@ -14,7 +14,7 @@ import kotlin.collections.ArrayList
  *
  * ConcatAdapter
  */
-class MergeAdapterActivity                                                                                 AppCompatActivity() {
+class MergeAdapterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

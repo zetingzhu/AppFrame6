@@ -127,7 +127,7 @@ public class WheelView1 extends ScrollView {
         // 2015/12/15 添加此句才可以支持联动效果
         views.removeAllViews();
 
-        for (String item                                                                                 items) {
+        for (String item : items) {
             views.addView(createView(item));
         }
 
@@ -231,7 +231,7 @@ public class WheelView1 extends ScrollView {
         if (null != onWheelListener) {
             // 2015/12/25 真实的index应该忽略偏移量
             int realIndex = selectedIndex - offset;
-            onWheelListener.onSelected(isUserScroll, realIndex, items.get(this.selectedIndex >= items.size() ? items.size() - 1                                                                                 this.selectedIndex));
+            onWheelListener.onSelected(isUserScroll, realIndex, items.get(this.selectedIndex >= items.size() ? items.size() - 1 : this.selectedIndex));
         }
     }
 

@@ -71,7 +71,7 @@ public class QMUIObservableScrollView extends ScrollView {
         super.onScrollChanged(l, t, oldl, oldt);
         mScrollOffset = t;
         if (mOnScrollChangedListeners != null && !mOnScrollChangedListeners.isEmpty()) {
-            for (OnScrollChangedListener listener                                                                                 mOnScrollChangedListeners) {
+            for (OnScrollChangedListener listener : mOnScrollChangedListeners) {
                 listener.onScrollChanged(this, l, t, oldl, oldt);
             }
         }

@@ -8,7 +8,7 @@ import com.zzt.entity.StartActivityDao
 import com.zzt.testdialog22.ww.DatePicker
 import java.util.*
 
-class MainActivity                                                                                 AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     var rv_data: RecyclerView? = null
     var diglogUtil: DialogUtil? = null
     override fun onCreate(savedInstanceState: Bundle?) {

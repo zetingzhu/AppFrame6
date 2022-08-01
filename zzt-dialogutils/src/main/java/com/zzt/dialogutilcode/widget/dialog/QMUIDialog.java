@@ -563,7 +563,7 @@ public class QMUIDialog extends QMUIBaseDialog {
 //
 //
 //            mMenuItemViews.clear();
-//            for (ItemViewFactory factory                                                                                 mMenuItemViewsFactoryList) {
+//            for (ItemViewFactory factory:mMenuItemViewsFactoryList) {
 //                QMUIDialogMenuItemView itemView = factory.createItemView(context);
 //                layout.addView(itemView, itemLp);
 //                mMenuItemViews.add(itemView);
@@ -592,7 +592,7 @@ public class QMUIDialog extends QMUIBaseDialog {
 //         * @param listener 菜单项的点击事件
 //         */
 //        public MenuDialogBuilder addItems(CharSequence[] items, DialogInterface.OnClickListener listener) {
-//            for (final CharSequence item                                                                                 items) {
+//            for (final CharSequence item:items) {
 //                addItem(item, listener);
 //            }
 //            return this;
@@ -677,7 +677,7 @@ public class QMUIDialog extends QMUIBaseDialog {
 //         * @param listener 菜单项的点击事件,可以在点击事件里调用 {@link #setCheckedIndex(int)} 来设置选中某些菜单项
 //         */
 //        public CheckableDialogBuilder addItems(CharSequence[] items, DialogInterface.OnClickListener listener) {
-//            for (final CharSequence item                                                                                 items) {
+//            for (final CharSequence item:items) {
 //                addItem(new ItemViewFactory() {
 //                    @Override
 //                    public QMUIDialogMenuItemView createItemView(Context context) {
@@ -723,7 +723,7 @@ public class QMUIDialog extends QMUIBaseDialog {
 //        public MultiCheckableDialogBuilder setCheckedItems(int[] checkedIndexes) {
 //            mCheckedItems.clear();
 //            if (checkedIndexes != null && checkedIndexes.length > 0) {
-//                for (int checkedIndex                                                                                 checkedIndexes) {
+//                for (int checkedIndex:checkedIndexes) {
 //                    mCheckedItems.set(checkedIndex);
 //                }
 //            }
@@ -737,7 +737,7 @@ public class QMUIDialog extends QMUIBaseDialog {
 //         * @param listener 菜单项的点击事件,可以在点击事件里调用 {@link #setCheckedItems(int[])}} 来设置选中某些菜单项
 //         */
 //        public MultiCheckableDialogBuilder addItems(CharSequence[] items, DialogInterface.OnClickListener listener) {
-//            for (final CharSequence item                                                                                 items) {
+//            for (final CharSequence item:items) {
 //                addItem(new ItemViewFactory() {
 //                    @Override
 //                    public QMUIDialogMenuItemView createItemView(Context context) {
