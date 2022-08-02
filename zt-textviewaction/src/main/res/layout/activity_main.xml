@@ -15,11 +15,7 @@
         android:textColor="@color/custom_border_txt_color"
         android:textIsSelectable="true"
         android:textSelectHandle="@color/color_527dff"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="20sp" />
 
     <TextView
         style="@style/SearchEditTextStyle"
@@ -36,5 +32,18 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
+    <com.zzt.zt_textviewaction.widget.SelectableTextView
+        android:id="@+id/ctv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#FDFBF8"
+        android:lineSpacingMultiplier="1.5"
+        android:padding="5dp"
+        android:textColor="#808080"
+        android:textSize="16sp"
+        app:textHeightColor="@color/color_3D56FF"
+        app:forbiddenActionMenu="false"
+        app:textJustify="false" />
 
 </LinearLayout>

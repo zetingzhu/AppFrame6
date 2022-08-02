@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zzt.zt_textviewaction.util.SelectableTextHelper;
+import com.zzt.zt_textviewaction.widget.ActionMenu;
+import com.zzt.zt_textviewaction.widget.CustomActionMenuCallBack;
+import com.zzt.zt_textviewaction.widget.SelectableTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,36 +63,51 @@ public class AdapterRv extends RecyclerView.Adapter<AdapterRv.MYh> {
 
     @Override
     public void onBindViewHolder(@NonNull MYh holder, int position) {
+//        holder.tv_title.setText(mList.get(holder.getBindingAdapterPosition()));
+
+//        new SelectableTextHelper.Builder(holder.tv_title)
+//                .setSelectedColor(holder.tv_title.getResources().getColor(R.color.color_ffff00))
+//                .setCursorHandleSizeInDp(20)
+//                .setCursorHandleColor(holder.tv_title.getResources().getColor(R.color.color_3D56FF))
+//                .addSelectActionListener(new com.zzt.zt_textviewaction.util.SelectActionListener() {
+//                    @Override
+//                    public void onTextSelected(CharSequence content) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onTextSelectedCopy(CharSequence content) {
+//                        Log.e("测试", "复制的数据: " + content);
+////                        TextUtil.copyText(tv_open_message, content.toString());
+//                    }
+//
+//                    @Override
+//                    public void onTextSelectedReply(CharSequence content) {
+//                        Log.d(TAG, "点击了回复 选中内容：" + content);
+//
+//                    }
+//
+//                    @Override
+//                    public void onTextSelectedDownload(CharSequence content) {
+//
+//                    }
+//                })
+//                .build();
+
         holder.tv_title.setText(mList.get(holder.getBindingAdapterPosition()));
+        holder.tv_title.clearFocus();
+//        holder.tv_title.setForbiddenActionMenu(false);
+        holder.tv_title.setCustomActionMenuCallBack(new CustomActionMenuCallBack() {
+            @Override
+            public boolean onCreateCustomActionMenu(ActionMenu menu) {
+                return false;
+            }
 
-        new SelectableTextHelper.Builder(holder.tv_title)
-                .setSelectedColor(holder.tv_title.getResources().getColor(R.color.color_ffff00))
-                .setCursorHandleSizeInDp(20)
-                .setCursorHandleColor(holder.tv_title.getResources().getColor(R.color.color_3D56FF))
-                .addSelectActionListener(new com.zzt.zt_textviewaction.util.SelectActionListener() {
-                    @Override
-                    public void onTextSelected(CharSequence content) {
+            @Override
+            public void onCustomActionItemClicked(String itemTitle, String selectedContent) {
 
-                    }
-
-                    @Override
-                    public void onTextSelectedCopy(CharSequence content) {
-                        Log.e("测试", "复制的数据: " + content);
-//                        TextUtil.copyText(tv_open_message, content.toString());
-                    }
-
-                    @Override
-                    public void onTextSelectedReply(CharSequence content) {
-                        Log.d(TAG, "点击了回复 选中内容：" + content);
-
-                    }
-
-                    @Override
-                    public void onTextSelectedDownload(CharSequence content) {
-
-                    }
-                })
-                .build();
+            }
+        });
     }
 
     @Override
@@ -98,7 +116,7 @@ public class AdapterRv extends RecyclerView.Adapter<AdapterRv.MYh> {
     }
 
     class MYh extends RecyclerView.ViewHolder {
-        private TextView tv_title;
+        private SelectableTextView tv_title;
 
         public MYh(@NonNull View itemView) {
             super(itemView);

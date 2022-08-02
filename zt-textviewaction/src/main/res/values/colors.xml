@@ -12,4 +12,8 @@
     <color name="color_3D56FF">#3D56FF</color>
     <color name="color_f3f4f7">#f3f4f7</color>
     <color name="color_ffff00">#ffff00</color>
+
+    <color name="selectable_cursor">#004DDD</color>
+    <color name="selectable_select_text_bg">#59004DDD</color>
+    <color name="selectable_select_pop_bg">#6B6B6E</color>
 </resources>
