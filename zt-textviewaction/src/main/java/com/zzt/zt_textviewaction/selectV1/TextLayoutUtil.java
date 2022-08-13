@@ -1,13 +1,16 @@
-package com.zzt.zt_textviewaction.select;
+package com.zzt.zt_textviewaction.selectV1;
 
 import android.content.Context;
-import android.graphics.Rect;
 import android.text.Layout;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.TextView;
 
-public class TextLayoutUtils {
+/**
+ * @author: zeting
+ * @date: 2022/7/28
+ * 文本滑动选中位工具
+ */
+public class TextLayoutUtil {
+    private static final String TAG = "SelectionAction TextLayoutUtil";
 
     public static int getScreenWidth(Context context) {
         return context.getResources().getDisplayMetrics().widthPixels;
@@ -48,7 +51,7 @@ public class TextLayoutUtils {
         // @see Moon+ Reader/Color Note - see how it can't select the last character of a line unless you move
         // the cursor to the beginning of the next line.
         //
-        ////////////////////HACK BLOCK////////////////////////////////////////////////////
+        //HACK BLOCK
 
         if (isEndOfLineOffset(layout, previousOffset)) {
             // we have to minus one from the offset so that the code below to find
@@ -60,7 +63,7 @@ public class TextLayoutUtils {
                 previousOffset -= 1;
             }
         }
-        ///////////////////////////////////////////////////////////////////////////////////
+        ///
 
         final int previousLine = layout.getLineForOffset(previousOffset);
         final int previousLineTop = layout.getLineTop(previousLine);
@@ -70,8 +73,8 @@ public class TextLayoutUtils {
         // If new line is just before or after previous line and y position is less than
         // hysteresisThreshold away from previous line, keep cursor on previous line.
         if (((line == previousLine + 1) && ((y - previousLineBottom) < hysteresisThreshold)) || ((line == previousLine - 1) && ((
-            previousLineTop
-                - y) < hysteresisThreshold))) {
+                previousLineTop
+                        - y) < hysteresisThreshold))) {
             line = previousLine;
         }
 
@@ -83,7 +86,7 @@ public class TextLayoutUtils {
         //
         // But this function will probably get called again immediately, must decrement the offset
         // by 1 to compensate for the change made below. (see previous HACK BLOCK)
-        /////////////////////HACK BLOCK///////////////////////////////////////////////////
+        //HACK BLOCK///
         if (offset < textView.getText().length() - 1) {
             if (isEndOfLineOffset(layout, offset + 1)) {
                 int left = (int) layout.getPrimaryHorizontal(offset);
@@ -94,11 +97,7 @@ public class TextLayoutUtils {
                 }
             }
         }
-        //////////////////////////////////////////////////////////////////////////////////
-
-        if (offset > textView.getText().length()) {
-            offset = textView.getText().length();
-        }
+        //
 
         return offset;
     }
@@ -107,21 +106,9 @@ public class TextLayoutUtils {
         return offset > 0 && layout.getLineForOffset(offset) == layout.getLineForOffset(offset - 1) + 1;
     }
 
-    /**
-     * 判断触摸的点是否在View范围内
-     */
-    public static boolean isInView(View view, MotionEvent event) {
-        int[] location = {0, 0};
-        view.getLocationInWindow(location);
-        int left = location[0], top = location[1], bottom = top + view.getHeight(), right = left + view.getWidth();
-        float eventX = event.getX();
-        float eventY = event.getY();
-        Rect rect = new Rect(left, top, right, bottom);
-        return rect.contains((int) eventX, (int) eventY);
-    }
-
-    public static int dip2px(Context context, float dpValue) {
+    public static int dp2px(Context context, float dpValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 }
+

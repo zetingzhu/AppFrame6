@@ -1,4 +1,4 @@
-package com.zzt.zt_textviewaction.util;
+package com.zzt.zt_textviewaction.selectV1;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -21,7 +21,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
-import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 

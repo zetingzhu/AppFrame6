@@ -3,7 +3,6 @@ package com.zzt.zt_textviewaction;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.View;
@@ -14,9 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zzt.zt_textviewaction.widget.ActionMenu;
-import com.zzt.zt_textviewaction.widget.CustomActionMenuCallBack;
-import com.zzt.zt_textviewaction.widget.SelectableTextView;
+import com.zzt.zt_textviewaction.selectv3.ActionMenu;
+import com.zzt.zt_textviewaction.selectv3.CustomActionMenuCallBack;
+import com.zzt.zt_textviewaction.selectv3.SelectableTextView;
 
 import java.util.ArrayList;
 import java.util.List;

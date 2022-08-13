@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
         android:id="@+id/cv_root"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         app:cardElevation="3dp"
         app:cardMaxElevation="6dp">
 
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/iv_arrow"

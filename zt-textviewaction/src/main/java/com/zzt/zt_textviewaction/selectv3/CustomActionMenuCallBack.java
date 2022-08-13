@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.zzt.zt_textviewaction.widget;
+package com.zzt.zt_textviewaction.selectv3;
 
 /**
  * Created by zengp on 2017/12/2.

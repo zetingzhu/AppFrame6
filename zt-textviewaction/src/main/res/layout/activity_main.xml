@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
-    <com.zzt.zt_textviewaction.widget.SelectableTextView
+    <com.zzt.zt_textviewaction.selectv3.SelectableTextView
         android:id="@+id/ctv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

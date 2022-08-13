@@ -14,45 +14,26 @@
  * limitations under the License.
  */
 
-package com.zzt.zt_textviewaction.widget;
-
-import static android.content.Context.VIBRATOR_SERVICE;
+package com.zzt.zt_textviewaction.selectv3;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.os.Vibrator;
 import android.text.Layout;
 import android.text.Selection;
-import android.text.StaticLayout;
-import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewParent;
 import android.view.WindowManager;
-import android.view.accessibility.AccessibilityEvent;
-import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.AppCompatTextView;
 
 import com.zzt.zt_textviewaction.R;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * SelectableTextView ————增强版的TextView，具有以下功能：

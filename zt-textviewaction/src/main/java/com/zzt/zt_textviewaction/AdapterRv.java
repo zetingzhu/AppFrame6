@@ -2,6 +2,7 @@ package com.zzt.zt_textviewaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,10 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zzt.zt_textviewaction.util.SelectableTextHelper;
-import com.zzt.zt_textviewaction.widget.ActionMenu;
-import com.zzt.zt_textviewaction.widget.CustomActionMenuCallBack;
-import com.zzt.zt_textviewaction.widget.SelectableTextView;
+import com.zzt.zt_textviewaction.selectv2.SelectableTextHelper;
+import com.zzt.zt_textviewaction.selectv3.ActionMenu;
+import com.zzt.zt_textviewaction.selectv3.CustomActionMenuCallBack;
+import com.zzt.zt_textviewaction.selectv3.SelectableTextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,11 @@ import java.util.List;
  * @date: 2022/8/1
  */
 public class AdapterRv extends RecyclerView.Adapter<AdapterRv.MYh> {
-    private static final String TAG = AdapterRv.class.getSimpleName();
+    private static final String TAG = "TextHelper AdapterRv";
     List<String> mList;
+    private SelectableTextHelper selectableTextHelper;
+    private int mTouchX = 0;
+    private int mTouchY = 0;
 
     public AdapterRv() {
         this.mList = new ArrayList<>();
@@ -58,12 +62,14 @@ public class AdapterRv extends RecyclerView.Adapter<AdapterRv.MYh> {
     @Override
     public MYh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_text, parent, false);
+        View operateView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_select_text_operate, null);
+        selectableTextHelper = new SelectableTextHelper(operateView, R.drawable.select_text_view_arrow);
         return new MYh(rootView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MYh holder, int position) {
-//        holder.tv_title.setText(mList.get(holder.getBindingAdapterPosition()));
+        holder.tv_title.setText(mList.get(holder.getBindingAdapterPosition()));
 
 //        new SelectableTextHelper.Builder(holder.tv_title)
 //                .setSelectedColor(holder.tv_title.getResources().getColor(R.color.color_ffff00))
@@ -94,20 +100,55 @@ public class AdapterRv extends RecyclerView.Adapter<AdapterRv.MYh> {
 //                })
 //                .build();
 
-        holder.tv_title.setText(mList.get(holder.getBindingAdapterPosition()));
-        holder.tv_title.clearFocus();
-//        holder.tv_title.setForbiddenActionMenu(false);
-        holder.tv_title.setCustomActionMenuCallBack(new CustomActionMenuCallBack() {
+
+//        holder.tv_title.setText(mList.get(holder.getBindingAdapterPosition()));
+//        holder.tv_title.clearFocus();
+////        holder.tv_title.setForbiddenActionMenu(false);
+//        holder.tv_title.setCustomActionMenuCallBack(new CustomActionMenuCallBack() {
+//            @Override
+//            public boolean onCreateCustomActionMenu(ActionMenu menu) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onCustomActionItemClicked(String itemTitle, String selectedContent) {
+//
+//            }
+//        });
+
+
+        holder.tv_title.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onCreateCustomActionMenu(ActionMenu menu) {
+            public boolean onTouch(View v, MotionEvent event) {
+                mTouchX = (int) event.getX();
+                mTouchY = (int) event.getY();
                 return false;
             }
-
+        });
+        holder.tv_title.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCustomActionItemClicked(String itemTitle, String selectedContent) {
-
+            public void onClick(View v) {
+//                if (selectableTextHelper != null) {
+//                    Log.w(TAG, "列表点击");
+//                    selectableTextHelper.resetSelectionInfo();
+//                    selectableTextHelper.hideSelectView();
+//                }
             }
         });
+        holder.tv_title.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (selectableTextHelper != null) {
+                    selectableTextHelper.resetSelectionInfo();
+                    selectableTextHelper.hideSelectView();
+                    Log.d(TAG, "长按：" + mTouchX + "-" + mTouchY + "   =  " + v.getX() + "-" + v.getY());
+                    selectableTextHelper.showSelectView(holder.tv_title, mTouchX, mTouchY);
+                }
+                return false;
+            }
+        });
+
+
     }
 
     @Override
@@ -116,7 +157,8 @@ public class AdapterRv extends RecyclerView.Adapter<AdapterRv.MYh> {
     }
 
     class MYh extends RecyclerView.ViewHolder {
-        private SelectableTextView tv_title;
+        //        private SelectableTextView tv_title;
+        private TextView tv_title;
 
         public MYh(@NonNull View itemView) {
             super(itemView);

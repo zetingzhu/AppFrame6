@@ -1,4 +1,4 @@
-package com.zzt.zt_textviewaction.select;
+package com.zzt.zt_textviewaction.selectv2;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -9,11 +9,13 @@ import android.text.Layout;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.BackgroundColorSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -32,7 +34,7 @@ import com.zzt.zt_textviewaction.R;
  * FullScreenWindow  全屏弹窗，点击空白全部弹窗消失
  */
 public class SelectableTextHelper {
-
+    private static final String TAG = "TextHelper V2";
     private Context mContext;
     private TextView mTextView;
 
@@ -152,6 +154,7 @@ public class SelectableTextHelper {
     }
 
     public void hideSelectView() {
+        Log.w(TAG, "关闭所有数据");
         isShow = false;
 
         if (mStartHandle != null) {
@@ -396,7 +399,7 @@ public class SelectableTextHelper {
         private PopupWindow mWindow;
 
         private View contentView;
-        private CardView cvRoot;
+        private FrameLayout cvRoot;
         private ImageView ivArrow;
 
         public OperateWindow(final Context context) {

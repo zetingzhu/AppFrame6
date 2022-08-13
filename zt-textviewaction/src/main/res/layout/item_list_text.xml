@@ -4,26 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/tv_title"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:padding="10dp"-->
-    <!--        android:text="TextView"-->
-    <!--        android:textSize="20sp" />-->
-
-
-    <com.zzt.zt_textviewaction.widget.SelectableTextView
+    <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="#FDFBF8"
-        android:lineSpacingMultiplier="1.5"
-        android:padding="5dp"
-        android:textColor="#808080"
-        android:textSize="16sp"
-        app:forbiddenActionMenu="false"
-        app:textHeightColor="@color/color_3D56FF"
-        app:textJustify="false" />
+        android:text="TextView"
+        android:textSize="20sp" />
+
+
+    <!--    <com.zzt.zt_textviewaction.selectv3.SelectableTextView-->
+    <!--        android:id="@+id/tv_title"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:background="#FDFBF8"-->
+    <!--        android:lineSpacingMultiplier="1.5"-->
+    <!--        android:padding="5dp"-->
+    <!--        android:textColor="#808080"-->
+    <!--        android:textSize="16sp"-->
+    <!--        app:forbiddenActionMenu="false"-->
+    <!--        app:textHeightColor="@color/color_3D56FF"-->
+    <!--        app:textJustify="false" />-->
 </LinearLayout>

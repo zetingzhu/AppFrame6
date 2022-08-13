@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.zzt.zt_textviewaction.R;
-import com.zzt.zt_textviewaction.util.SelectActionListener;
+import com.zzt.zt_textviewaction.selectV1.SelectActionListener;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.zzt.zt_textviewaction.util;
+package com.zzt.zt_textviewaction.selectV1;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
