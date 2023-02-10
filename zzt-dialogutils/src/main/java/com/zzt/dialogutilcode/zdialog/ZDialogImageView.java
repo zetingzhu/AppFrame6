@@ -57,8 +57,8 @@ public class ZDialogImageView {
         return this;
     }
 
-    public AppCompatImageView buildView(final BaseShowDismissAppCompatDialog dialog) {
-        mImageView = getDeleteButton(dialog.getContext(), mIconRes);
+    public AppCompatImageView buildView( Context mContext , final BaseShowDismissAppCompatDialog dialog) {
+        mImageView = getDeleteButton(mContext, mIconRes);
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

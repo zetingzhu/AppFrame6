@@ -7,9 +7,12 @@ import android.content.pm.ComponentInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +26,12 @@ import com.zzt.dialogutilcode.web.SrcWebAct;
 import com.zzt.dialogutilcode.widget.dialog.QMUIDialog;
 import com.zzt.dialogutilcode.widget.dialog.QMUIDialogAction;
 import com.zzt.dialogutilcode.zdialog.BaseShowDismissAppCompatDialog;
+import com.zzt.dialogutilcode.zdialog.MDialogA;
 import com.zzt.dialogutilcode.zdialog.SSSDialog;
 import com.zzt.dialogutilcode.zdialog.ZDialogAction;
+import com.zzt.dialogutilcode.zdialog.ZDialogBuildHelp;
 import com.zzt.dialogutilcode.zdialog.ZDialogImageView;
+import com.zzt.dialogutilcode.zdialog.ZDialogTextView;
 import com.zzt.dialogutilcode.zdialog.ZDialogUtil;
 import com.zzt.entity.StartActivityDao;
 
@@ -67,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         mListDialog.add(new StartActivityDao("新的自定义的对话框4", "", "4"));
         mListDialog.add(new StartActivityDao("新的自定义的对话框5", "", "5"));
         mListDialog.add(new StartActivityDao("新的自定义的对话框6", "", "6"));
+        mListDialog.add(new StartActivityDao("打开页面", "", "7"));
+        mListDialog.add(new StartActivityDao("自定义布局对话框", "", "8"));
 
         StartActivityRecyclerAdapter.setAdapterData(rv_list, RecyclerView.VERTICAL, mListDialog, (itemView, position, data) -> {
             switch (data.getArouter()) {
@@ -133,28 +141,28 @@ public class MainActivity extends AppCompatActivity {
                             .show();
                     break;
                 case "4":
-//                    new ZDialogUtil.MessageDialogBuilder(MainActivity.this, R.style.Style_Base_Dialog)
-//                            .setTopImage(R.drawable.ic_compare)
-//                            .setRightDel(new ZDialogImageView.DialogImageViewListener() {
-//                                @Override
-//                                public void onClick(BaseShowDismissAppCompatDialog dialog) {
-//                                    dialog.dismiss();
-//                                }
-//                            })
-//                            .setTitleMessage("ttttt", "MMMMMM")
-//                            .addActionTopBlue(new ZDialogAction("AAA", new ZDialogAction.ActionListener() {
-//                                @Override
-//                                public void onClick(BaseShowDismissAppCompatDialog dialog, int index) {
-//                                    dialog.dismiss();
-//                                }
-//                            }))
-//                            .addActionBottomGray(new ZDialogAction("BBB", new ZDialogAction.ActionListener() {
-//                                @Override
-//                                public void onClick(BaseShowDismissAppCompatDialog dialog, int index) {
-//                                    dialog.dismiss();
-//                                }
-//                            }))
-//                            .show();
+                    new ZDialogUtil.MessageDialogBuilder(MainActivity.this, R.style.Style_Base_Dialog)
+                            .setTopImage(R.drawable.ic_compare)
+                            .setRightDel(new ZDialogImageView.DialogImageViewListener() {
+                                @Override
+                                public void onClick(BaseShowDismissAppCompatDialog dialog) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .setTitleMessage("ttttt", "MMMMMM")
+                            .addActionTopBlue(new ZDialogAction("AAA", new ZDialogAction.ActionListener() {
+                                @Override
+                                public void onClick(BaseShowDismissAppCompatDialog dialog, int index) {
+                                    dialog.dismiss();
+                                }
+                            }))
+                            .addActionBottomGray(new ZDialogAction("BBB", new ZDialogAction.ActionListener() {
+                                @Override
+                                public void onClick(BaseShowDismissAppCompatDialog dialog, int index) {
+                                    dialog.dismiss();
+                                }
+                            }))
+                            .show();
                     break;
                 case "5":
                     new ZDialogUtil.MessageDialogBuilder(MainActivity.this, R.style.Style_Base_Dialog)
@@ -171,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
                                     dialog.dismiss();
                                 }
                             }))
+
                             .show();
                     break;
                 case "6":
@@ -194,7 +203,22 @@ public class MainActivity extends AppCompatActivity {
                                     dialog.dismiss();
                                 }
                             }))
+                            .addTextView(new ZDialogTextView("后来添加的")
+                                    .setTextColor(Color.parseColor("#252C58"))
+                                    .setTextSize(18)
+                                    .setLpMargin(0, 0, 0, 0)
+                                    .setGravity(Gravity.CENTER)
+                                    .setTypefaceStyle(Typeface.BOLD))
+                            .setCancelable(false)
+                            .setCanceledOnTouchOutside(false)
                             .show();
+                    break;
+                case "7":
+                    DialogRootAct.start(MainActivity.this);
+                    break;
+                case "8":
+                    MDialogA mDialogA = new MDialogA(MainActivity.this);
+                    mDialogA.show();
                     break;
             }
         });

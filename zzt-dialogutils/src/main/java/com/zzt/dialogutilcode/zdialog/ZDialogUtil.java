@@ -28,14 +28,8 @@ import java.util.List;
  */
 public class ZDialogUtil {
     public static class MessageDialogBuilder extends ZDialogBuilder<ZDialogUtil.MessageDialogBuilder> {
-        // 左右间距
-        private int lpLeftMargin;
-        private int lpRightMargin;
-        // 是否显示删除按钮
-        private boolean hasRightDel = false;
-
-        // 所有内容的信息
-        private List<ZDialogTextView> mTextViews = new ArrayList<>();
+        // 弹框视图简化工具
+        private ZDialogBuildHelp buildHelp;
 
         public MessageDialogBuilder(Context context) {
             super(context, R.style.Style_Base_Dialog);
@@ -48,65 +42,101 @@ public class ZDialogUtil {
         }
 
         private void initView() {
-            setActionContainerOrientation(ZDialogBuilder.VERTICAL)
-                    .setActionSpace(dp2px(getBaseContext(), 8))
-                    .setNightMode(true);
-            lpLeftMargin = dp2px(getBaseContext(), 16);
-            lpRightMargin = dp2px(getBaseContext(), 16);
+            buildHelp = new ZDialogBuildHelp(getDialogRootView());
         }
 
         /**
-         * 设置顶部图片
+         * 获取已经绑定的 视图工具
+         *
+         * @param listener
+         * @return
          */
-        public ZDialogUtil.MessageDialogBuilder setTopImage(@DrawableRes int iconRes) {
-            setTopImage(new ZDialogImageView(iconRes)
-                    .setLpHeight(dp2px(getBaseContext(), 80))
-                    .setLpWidth(dp2px(getBaseContext(), 80))
-            );
+        public ZDialogUtil.MessageDialogBuilder getBuildHelp(DialogBuildHelpListener listener) {
+            if (listener != null) {
+                listener.getBuildHelp(buildHelp);
+            }
             return this;
         }
 
         /**
          * 设置顶部图片
          */
-        public ZDialogUtil.MessageDialogBuilder setTopImage(Drawable iconRes) {
-            setTopImage(new ZDialogImageView(0)
-                    .setIconDrawable(iconRes)
-                    .setLpHeight(dp2px(getBaseContext(), 80))
-                    .setLpWidth(dp2px(getBaseContext(), 80))
-            );
+        public MessageDialogBuilder setTopImage(@DrawableRes int iconRes) {
+            if (buildHelp != null) {
+                buildHelp.setTopImage(iconRes);
+            }
+            return this;
+        }
+
+        /**
+         * 设置顶部图片
+         */
+        public MessageDialogBuilder setTopImage(Drawable iconRes) {
+            if (buildHelp != null) {
+                buildHelp.setTopImage(iconRes);
+            }
             return this;
         }
 
         /**
          * 添加对话框底部的操作按钮
          */
-        public ZDialogUtil.MessageDialogBuilder addTextView(@Nullable ZDialogTextView dialogTV) {
-            if (dialogTV != null) {
-                mTextViews.add(dialogTV);
+        public MessageDialogBuilder addTextView(@Nullable ZDialogTextView dialogTV) {
+            if (buildHelp != null) {
+                buildHelp.addTextView(dialogTV);
             }
             return this;
+        }
+
+
+        /**
+         * 设置右侧删除图片
+         */
+        public MessageDialogBuilder setRightDel(ZDialogImageView.DialogImageViewListener listener) {
+            return setRightDel(true, 0, listener);
         }
 
         /**
          * 设置右侧删除图片
          */
-        public ZDialogUtil.MessageDialogBuilder setRightDel(ZDialogImageView.DialogImageViewListener listener) {
-            return setRightDel(true, 0, listener);
+        public MessageDialogBuilder setRightDel(boolean show, @DrawableRes int iconRes, ZDialogImageView.DialogImageViewListener listener) {
+            if (buildHelp != null) {
+                buildHelp.setRightDel(show, iconRes, listener);
+            }
+            return this;
         }
 
+
+        public MessageDialogBuilder setBottomDel(ZDialogImageView.DialogImageViewListener listener) {
+            return setBottomDel(true, 0, listener);
+        }
+
+        /**
+         * 设置底部删除图片
+         */
+        public MessageDialogBuilder setBottomDel(boolean show, @DrawableRes int iconRes, ZDialogImageView.DialogImageViewListener listener) {
+            if (buildHelp != null) {
+                buildHelp.setBottomDel(show, iconRes, listener);
+            }
+            return this;
+        }
+
+        /**
+         * 设置只有单独一个蓝色按钮
+         */
+        public MessageDialogBuilder addActionSingleBlue(@Nullable ZDialogAction action) {
+            if (buildHelp != null) {
+                buildHelp.addActionSingleBlue(action);
+            }
+            return this;
+        }
 
         /**
          * 设置上面蓝色按钮
          */
-        public ZDialogUtil.MessageDialogBuilder addActionTopBlue(@Nullable ZDialogAction action) {
-            if (action != null) {
-                action.setTextSize(16)
-                        .setTextColor(ContextCompat.getColor(getBaseContext(), R.color.white))
-                        .setBackground(ContextCompat.getDrawable(getBaseContext(), R.drawable.round_3d56ff_3dp))
-                        .setBtnHeight(dp2px(getBaseContext(), 40))
-                        .setLpMargin(lpLeftMargin, 0, lpRightMargin, 0);
-                addAction(action);
+        public MessageDialogBuilder addActionTopBlue(@Nullable ZDialogAction action) {
+            if (buildHelp != null) {
+                buildHelp.addActionTopBlue(action);
             }
             return this;
         }
@@ -114,75 +144,9 @@ public class ZDialogUtil {
         /**
          * 设置下面灰色按钮
          */
-        public ZDialogUtil.MessageDialogBuilder addActionBottomGray(@Nullable ZDialogAction action) {
-            if (action != null) {
-                action.setTextSize(16)
-                        .setTextColor(ContextCompat.getColor(getBaseContext(), R.color.color_999999))
-                        .setBackground(null)
-                        .setBtnHeight(dp2px(getBaseContext(), 40))
-                        .setLpMargin(lpLeftMargin, 0, lpRightMargin, dp2px(getBaseContext(), 8));
-                addAction(action);
-            }
-            return this;
-        }
-
-
-        /**
-         * 设置右侧删除图片
-         */
-        public ZDialogUtil.MessageDialogBuilder setRightDel(boolean show, @DrawableRes int iconRes, ZDialogImageView.DialogImageViewListener listener) {
-            this.hasRightDel = show;
-            if (show) {
-                if (iconRes == 0) {
-                    setRightDelete(new ZDialogImageView(R.drawable.ic_close)
-                            .setLpHeight(dp2px(getBaseContext(), 24))
-                            .setLpWidth(dp2px(getBaseContext(), 24))
-                            .setLpMargin(0, dp2px(getBaseContext(), 12),
-                                    dp2px(getBaseContext(), 12), 0)
-                            .onClick(listener)
-                    );
-                } else {
-                    setRightDelete(new ZDialogImageView(iconRes)
-                            .setLpHeight(dp2px(getBaseContext(), 24))
-                            .setLpWidth(dp2px(getBaseContext(), 24))
-                            .setLpMargin(0, dp2px(getBaseContext(), 12),
-                                    dp2px(getBaseContext(), 12), 0)
-                            .onClick(listener)
-                    );
-                }
-            } else {
-                setRightDelete(null);
-            }
-            return this;
-        }
-
-
-        public ZDialogUtil.MessageDialogBuilder setBottomDel(ZDialogImageView.DialogImageViewListener listener) {
-            return setBottomDel(true, 0, listener);
-        }
-
-        /**
-         * 设置底部删除图片
-         */
-        public ZDialogUtil.MessageDialogBuilder setBottomDel(boolean show, @DrawableRes int iconRes, ZDialogImageView.DialogImageViewListener listener) {
-            if (show) {
-                if (iconRes == 0) {
-                    setBottomDelete(new ZDialogImageView(R.drawable.ic_close)
-                            .setLpHeight(dp2px(getBaseContext(), 24))
-                            .setLpWidth(dp2px(getBaseContext(), 24))
-                            .setLpMargin(0, dp2px(getBaseContext(), 40), 0, 0)
-                            .onClick(listener)
-                    );
-                } else {
-                    setBottomDelete(new ZDialogImageView(iconRes)
-                            .setLpHeight(dp2px(getBaseContext(), 24))
-                            .setLpWidth(dp2px(getBaseContext(), 24))
-                            .setLpMargin(0, dp2px(getBaseContext(), 40), 0, 0)
-                            .onClick(listener)
-                    );
-                }
-            } else {
-                setBottomDelete(null);
+        public MessageDialogBuilder addActionBottomGray(@Nullable ZDialogAction action) {
+            if (buildHelp != null) {
+                buildHelp.addActionBottomGray(action);
             }
             return this;
         }
@@ -190,38 +154,29 @@ public class ZDialogUtil {
         /**
          * 设置对话框的消息文本
          */
-        public ZDialogUtil.MessageDialogBuilder setMessage(CharSequence message) {
-            if (!TextUtils.isEmpty(message)) {
-                mTextViews.add(new ZDialogTextView(message)
-                        .setTextColor(Color.parseColor("#252C58"))
-                        .setTextSize(18)
-                        .setLpMargin(lpLeftMargin, dp2px(getBaseContext(), 32), lpRightMargin, dp2px(getBaseContext(), 40))
-                        .setGravity(Gravity.CENTER)
-                );
+        public MessageDialogBuilder setMessage(CharSequence message) {
+            if (buildHelp != null) {
+                buildHelp.setMessage(message);
             }
             return this;
         }
 
         /**
-         * 设置对话框的消息文本
+         * 设置对话框的消息文本，只有一个黑的的普通文本
          */
-        public ZDialogUtil.MessageDialogBuilder setTitleMessage(CharSequence title, CharSequence message) {
-            if (!TextUtils.isEmpty(title)) {
-                mTextViews.add(new ZDialogTextView(title)
-                        .setTextColor(Color.parseColor("#252C58"))
-                        .setTextSize(18)
-                        .setLpMargin(lpLeftMargin, dp2px(getBaseContext(), 32), lpRightMargin, 0)
-                        .setGravity(Gravity.CENTER)
-                        .setTypefaceStyle(Typeface.BOLD)
-                );
+        public MessageDialogBuilder setSingleMessage(CharSequence message) {
+            if (buildHelp != null) {
+                buildHelp.setSingleMessage(message);
             }
-            if (!TextUtils.isEmpty(message)) {
-                mTextViews.add(new ZDialogTextView(message)
-                        .setTextColor(Color.parseColor("#252C58"))
-                        .setTextSize(16)
-                        .setLpMargin(lpLeftMargin, dp2px(getBaseContext(), 16), lpRightMargin, dp2px(getBaseContext(), 24))
-                        .setGravity(Gravity.CENTER)
-                );
+            return this;
+        }
+
+        /**
+         * 设置对话框的消息文本，一个粗的标题，一个细的内容文本
+         */
+        public MessageDialogBuilder setTitleMessage(CharSequence title, CharSequence message) {
+            if (buildHelp != null) {
+                buildHelp.setTitleMessage(title, message);
             }
             return this;
         }
@@ -229,23 +184,29 @@ public class ZDialogUtil {
 
         @Nullable
         @Override
-        protected View onCreateContent(@NonNull BaseShowDismissAppCompatDialog dialog, @NonNull ConstraintLayout parent, @NonNull Context context) {
-            int size = mTextViews.size();
-            if (size > 0) {
-                LinearLayout layout = new LinearLayout(context);
-                layout.setOrientation(LinearLayout.VERTICAL);
-                for (int i = 0; i < size; i++) {
-                    ZDialogTextView mdtv = mTextViews.get(i);
-                    LinearLayout.LayoutParams mTVLp = mdtv.buildLayoutParams();
-                    if (i == 0 && hasRightDel) {
-                        mTVLp.topMargin = dp2px(getBaseContext(), 12);
+        protected View onCreateContent(@NonNull BaseShowDismissAppCompatDialog dialog, @NonNull Context context) {
+            if (buildHelp != null && !buildHelp.getTextViews().isEmpty()) {
+                int size = buildHelp.getTextViews().size();
+                if (size > 0) {
+                    LinearLayout layout = new LinearLayout(context);
+                    layout.setOrientation(LinearLayout.VERTICAL);
+                    for (int i = 0; i < size; i++) {
+                        ZDialogTextView mdtv = buildHelp.getTextViews().get(i);
+                        LinearLayout.LayoutParams mTVLp = mdtv.buildLayoutParams();
+                        if (i == 0 && buildHelp.isHasRightDel()) {
+                            mTVLp.topMargin = ZDialogBuildHelp.dp2px(getBaseContext(), 12);
+                        }
+                        AppCompatTextView textView = mdtv.buildTextView(mDialog, i);
+                        layout.addView(textView, mTVLp);
                     }
-                    AppCompatTextView textView = mdtv.buildTextView(mDialog, i);
-                    layout.addView(textView, mTVLp);
+                    return layout;
                 }
-                return layout;
             }
             return null;
         }
+    }
+
+    public interface DialogBuildHelpListener {
+        void getBuildHelp(ZDialogBuildHelp help);
     }
 }

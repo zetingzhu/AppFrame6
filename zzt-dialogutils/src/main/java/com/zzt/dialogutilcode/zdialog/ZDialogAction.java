@@ -57,8 +57,8 @@ public class ZDialogAction {
         mOnClickListener = onClickListener;
     }
 
-    public AppCompatButton buildActionView(final BaseShowDismissAppCompatDialog dialog, final int index) {
-        mButton = generateActionButton(dialog.getContext(), mStr);
+    public AppCompatButton buildActionView(Context mContext,final BaseShowDismissAppCompatDialog dialog, final int index) {
+        mButton = generateActionButton(mContext, mStr);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
