@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 
+import com.zzt.banvp.entiy.ImgObj;
 import com.zzt.banvp.util.BannerAdapterBase;
 
 import java.util.List;
@@ -15,14 +16,14 @@ import java.util.List;
  * @author: zeting
  * @date: 2022/1/5
  */
-public class ImgAdapter extends BannerAdapterBase<Integer, MyVH> {
+public class ImgAdapter extends BannerAdapterBase<ImgObj, MyVH> {
 
-    public ImgAdapter(List<Integer> datas) {
+    public ImgAdapter(List<ImgObj> datas) {
         super(datas);
     }
 
     @Override
-    public void setDatas(List<Integer> datas) {
+    public void setDatas(List<ImgObj> datas) {
         super.setDatas(datas);
     }
 
@@ -37,9 +38,9 @@ public class ImgAdapter extends BannerAdapterBase<Integer, MyVH> {
     public void onBindViewHolder(@NonNull MyVH holder, int position) {
         int bindingAdapterPosition = holder.getBindingAdapterPosition();
         int realPosition = getRealPosition(bindingAdapterPosition);
-        Integer realData = getRealData(bindingAdapterPosition);
-        holder.iv_banner_img.setImageResource(realData);
-
+        ImgObj realData = getRealData(bindingAdapterPosition);
+        holder.iv_banner_img.setImageResource(realData.getImgId());
+        holder.tv_body.setText(realData.getBody());
     }
 
 }

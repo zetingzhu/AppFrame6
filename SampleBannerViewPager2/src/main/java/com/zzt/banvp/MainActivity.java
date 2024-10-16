@@ -12,10 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.zzt.banvp.entiy.ImgObj;
 import com.zzt.banvp.util.CircleIndicator;
 import com.zzt.banvp.util.ViewPager2BannerManager;
 import com.zzt.banvp.util.ViewPager2IndicatorManager;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -66,8 +68,11 @@ public class MainActivity extends AppCompatActivity {
         vim1.attach();
 
 
-        List<Integer> ints = Arrays.asList(arrayIds);
-        ImgAdapter imgAdapter = new ImgAdapter(ints);
+        List<ImgObj> ints = new ArrayList<>();
+        for (int i = 0; i < arrayIds.length; i++) {
+            ints.add(new ImgObj(arrayIds[i], "第" + (i + 1) + "个"));
+        }
+        ImgAdapter imgAdapter = new ImgAdapter(null);
 
         ViewPager2BannerManager vpbm = new ViewPager2BannerManager(vp_banner2, imgAdapter);
         vpbm.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -91,8 +96,18 @@ public class MainActivity extends AppCompatActivity {
         vpbm.attach();
         ViewPager2IndicatorManager vim2 = new ViewPager2IndicatorManager(vp_banner2, ci_banner2);
         vim2.setBannerManager(vpbm);
-        vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
-        vim2.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
+        vim2.setIndicatorNormalColor(Color.parseColor("#DFDFDE"));
+        vim2.setIndicatorSelectedColor(Color.parseColor("#FF0000"));
         vim2.attach();
+
+        vp_banner2.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                imgAdapter.setDatas(ints);
+                vpbm.setDataAfter();
+
+            }
+        }, 1000 * 3);
+
     }
 }

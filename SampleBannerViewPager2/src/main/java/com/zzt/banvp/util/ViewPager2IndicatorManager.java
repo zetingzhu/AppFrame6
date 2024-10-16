@@ -30,7 +30,9 @@ vim2.setBannerManager(vpbm);
 vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
 vim2.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
 vim2.attach();
-
+如果使用了setDatas 设置数据需要初始化起始位置
+imgAdapter.setDatas(ints);
+vpbm.setDataAfter();
 
  */
 public class ViewPager2IndicatorManager {

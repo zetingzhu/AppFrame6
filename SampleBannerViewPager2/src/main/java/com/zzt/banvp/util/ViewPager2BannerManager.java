@@ -8,22 +8,26 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 /**
  * @author: zeting
  * @date: 2022/1/6
  * Viewpager2 无限滑动 banner 处理
- *
- *
-有循环使用：
-    ViewPager2BannerManager vpbm = new ViewPager2BannerManager(vp_banner2, imgAdapter);
-    vpbm.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback());
-    vpbm.attach();
-    ViewpagerIndicatorManager vim2 = new ViewpagerIndicatorManager(vp_banner2, ci_banner2);
-    vim2.setBannerManager(vpbm);
-    vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
-    vim2.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
-    vim2.attach();
-
+ * <p>
+ * <p>
+ * 有循环使用：
+ * ViewPager2BannerManager vpbm = new ViewPager2BannerManager(vp_banner2, imgAdapter);
+ * vpbm.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback());
+ * vpbm.attach();
+ * ViewpagerIndicatorManager vim2 = new ViewpagerIndicatorManager(vp_banner2, ci_banner2);
+ * vim2.setBannerManager(vpbm);
+ * vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
+ * vim2.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
+ * vim2.attach();
+ * 如果使用了setDatas 设置数据需要初始化起始位置
+ * imgAdapter.setDatas(ints);
+ * vpbm.setDataAfter();
  */
 public class ViewPager2BannerManager {
     private static final String TAG = ViewPager2BannerManager.class.getSimpleName();
@@ -91,6 +95,13 @@ public class ViewPager2BannerManager {
 
     public BannerAdapterBase<?, ?> getAdapter() {
         return mAdapter;
+    }
+
+    /**
+     * 在设置数据之后初始化
+     */
+    public void setDataAfter() {
+        setCurrentItem(mStartPosition, false);
     }
 
     /**
